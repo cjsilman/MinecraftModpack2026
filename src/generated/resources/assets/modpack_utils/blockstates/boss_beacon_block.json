@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/boss_beacon_block"
+    }
+  }
+}

@@ -1,8 +1,10 @@
 package dev.csilman.modpackutils;
 
 import dev.csilman.modpackutils.block.ModBlocks;
+import dev.csilman.modpackutils.block.entity.ModBlockEntities;
 import dev.csilman.modpackutils.item.ModCreativeModeTabs;
 import dev.csilman.modpackutils.item.ModItems;
+import dev.csilman.modpackutils.worldgen.placement.ModStructurePlacements;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -41,6 +43,8 @@ public class ModpackUtilsMod {
         ModCreativeModeTabs.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
+        ModStructurePlacements.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

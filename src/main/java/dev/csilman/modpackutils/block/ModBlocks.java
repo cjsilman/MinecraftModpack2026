@@ -1,6 +1,7 @@
 package dev.csilman.modpackutils.block;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
+import dev.csilman.modpackutils.block.custom.BossBeaconBlock;
 import dev.csilman.modpackutils.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -20,6 +21,9 @@ public class ModBlocks {
     // Sample test
     public static final DeferredBlock<Block> BLACK_OPAL_BLOCK = registerBlock("black_opal_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> BOSS_BEACON_BLOCK = registerBlock("boss_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
