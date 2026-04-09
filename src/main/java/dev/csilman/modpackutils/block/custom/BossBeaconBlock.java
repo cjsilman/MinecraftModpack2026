@@ -19,10 +19,22 @@ import org.jetbrains.annotations.Nullable;
 public class BossBeaconBlock extends BaseEntityBlock {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public static final MapCodec<BossBeaconBlock> CODEC = simpleCodec(BossBeaconBlock::new);
+    private final int beamColor;
 
     public BossBeaconBlock(Properties properties) {
         super(properties);
+        beamColor = 0;
         registerDefaultState(this.stateDefinition.any().setValue(ACTIVE, false));
+    }
+
+    public BossBeaconBlock(Properties properties, int beamColor) {
+        super(properties);
+        this.beamColor = beamColor;
+        registerDefaultState(this.stateDefinition.any().setValue(ACTIVE, false));
+    }
+
+    public int getBeamColor() {
+        return beamColor;
     }
 
     @Override

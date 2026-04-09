@@ -9,6 +9,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -21,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class BossBeaconEntity extends BlockEntity {
-    private static final int EFFECT_INTERVAL = 80;
+    private static final int EFFECT_INTERVAL = 40;
     private static final int EFFECT_RADIUS = 16;
 
     private boolean active = false;
@@ -47,10 +49,32 @@ public class BossBeaconEntity extends BlockEntity {
         boolean shouldBeActive = below.is(ModBlocks.BLACK_OPAL_BLOCK);
 
         if (shouldBeActive != this.active) {
+            if (shouldBeActive) {
+                level.playSound(
+                        null,
+                        worldPosition,
+                        SoundEvents.END_PORTAL_SPAWN,
+                        SoundSource.BLOCKS,
+                        1.0f,
+                        1.0f
+                );
+            }
+            else {
+                level.playSound(
+                        null,
+                        worldPosition,
+                        SoundEvents.BEACON_DEACTIVATE,
+                        SoundSource.BLOCKS,
+                        1.0f,
+                        1.0f
+                );
+            }
             this.active = shouldBeActive;
             level.setBlock(worldPosition, getBlockState().setValue(BossBeaconBlock.ACTIVE, active), 3);
             setChanged();
         }
+
+
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, BossBeaconEntity entity) {

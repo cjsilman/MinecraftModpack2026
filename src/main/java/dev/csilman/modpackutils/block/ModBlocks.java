@@ -23,7 +23,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BOSS_BEACON_BLOCK = registerBlock("boss_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()));
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of(), 9738690));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

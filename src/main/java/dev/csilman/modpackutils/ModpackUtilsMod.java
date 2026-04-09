@@ -2,9 +2,11 @@ package dev.csilman.modpackutils;
 
 import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.block.entity.ModBlockEntities;
+import dev.csilman.modpackutils.block.entity.renderer.BossBeaconEntityRenderer;
 import dev.csilman.modpackutils.item.ModCreativeModeTabs;
 import dev.csilman.modpackutils.item.ModItems;
 import dev.csilman.modpackutils.worldgen.placement.ModStructurePlacements;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -91,6 +93,11 @@ public class ModpackUtilsMod {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.BOSS_BEACON_BE.get(), BossBeaconEntityRenderer::new);
         }
     }
 }
