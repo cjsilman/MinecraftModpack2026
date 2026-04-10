@@ -17,7 +17,23 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.BLACK_OPAL_BLOCK.get());
-        dropSelf(ModBlocks.BOSS_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.SACRED_STONE.get());
+        dropSelf(ModBlocks.ABYSS_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.CURSED_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.DESERT_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.IGNIS_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.MECH_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.MONSTROUS_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.STORM_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.VOID_BEACON_BLOCK.get());
+        dropSelf(ModBlocks.ABYSS_BEACON_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.CURSED_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.DESERT_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.IGNIS_BEACON_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.MECH_BEACON_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.MONSTROUS_BEACON_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.STORM_BEACON_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.VOID_BEACON_PEDESTAL_BLOCK.get());
     }
 
     @Override

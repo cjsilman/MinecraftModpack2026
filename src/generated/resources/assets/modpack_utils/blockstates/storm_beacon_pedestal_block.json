@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "modpack_utils:block/storm_beacon_pedestal_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "modpack_utils:block/storm_beacon_pedestal_block"
+    },
+    "facing=south": {
+      "model": "modpack_utils:block/storm_beacon_pedestal_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "modpack_utils:block/storm_beacon_pedestal_block",
+      "y": 270
+    }
+  }
+}

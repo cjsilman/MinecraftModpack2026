@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/void_beacon_block"
+    }
+  }
+}

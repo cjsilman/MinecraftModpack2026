@@ -15,7 +15,17 @@ public class ModBlockEntities {
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, ModpackUtilsMod.MOD_ID);
 
     public static final Supplier<BlockEntityType<BossBeaconEntity>> BOSS_BEACON_BE = BLOCK_ENTITIES.register("boss_beacon_be",
-            () -> BlockEntityType.Builder.of(BossBeaconEntity::new, ModBlocks.BOSS_BEACON_BLOCK.get()).build(null));
+            () -> BlockEntityType.Builder.of(
+                    BossBeaconEntity::new,
+                    ModBlocks.ABYSS_BEACON_BLOCK.get(),
+                    ModBlocks.CURSED_BEACON_BLOCK.get(),
+                    ModBlocks.DESERT_BEACON_BLOCK.get(),
+                    ModBlocks.IGNIS_BEACON_BLOCK.get(),
+                    ModBlocks.MECH_BEACON_BLOCK.get(),
+                    ModBlocks.MONSTROUS_BEACON_BLOCK.get(),
+                    ModBlocks.STORM_BEACON_BLOCK.get(),
+                    ModBlocks.VOID_BEACON_BLOCK.get()
+            ).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

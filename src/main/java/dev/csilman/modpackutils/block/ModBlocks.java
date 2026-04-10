@@ -1,8 +1,12 @@
 package dev.csilman.modpackutils.block;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
+import dev.csilman.modpackutils.block.custom.BeaconPedestalBlock;
 import dev.csilman.modpackutils.block.custom.BossBeaconBlock;
+import dev.csilman.modpackutils.block.entity.custom.SacredStoneBlock;
 import dev.csilman.modpackutils.item.ModItems;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -22,8 +26,100 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLACK_OPAL_BLOCK = registerBlock("black_opal_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
-    public static final DeferredBlock<Block> BOSS_BEACON_BLOCK = registerBlock("boss_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of(), 9738690));
+    public static final DeferredBlock<Block> SACRED_STONE = registerBlock("sacred_stone",
+            () -> new SacredStoneBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    // Beacon Pedestal Blocks - Must be before Boss Beacons
+    public static final DeferredBlock<Block> ABYSS_BEACON_PEDESTAL_BLOCK = registerBlock("abyss_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    public static final DeferredBlock<Block> CURSED_PEDESTAL_BLOCK = registerBlock("cursed_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    public static final DeferredBlock<Block> DESERT_PEDESTAL_BLOCK = registerBlock("desert_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    public static final DeferredBlock<Block> IGNIS_BEACON_PEDESTAL_BLOCK = registerBlock("ignis_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    public static final DeferredBlock<Block> MECH_BEACON_PEDESTAL_BLOCK = registerBlock("mech_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    public static final DeferredBlock<Block> MONSTROUS_BEACON_PEDESTAL_BLOCK = registerBlock("monstrous_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    public static final DeferredBlock<Block> STORM_BEACON_PEDESTAL_BLOCK = registerBlock("storm_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    public static final DeferredBlock<Block> VOID_BEACON_PEDESTAL_BLOCK = registerBlock("void_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+
+    // Boss Beacon Blocks
+    public static final DeferredBlock<Block> ABYSS_BEACON_BLOCK = registerBlock("abyss_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+                    .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    6427105,
+                    ABYSS_BEACON_PEDESTAL_BLOCK,
+                    MobEffects.WATER_BREATHING
+            ));
+
+    public static final DeferredBlock<Block>
+            CURSED_BEACON_BLOCK = registerBlock("cursed_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+                    .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    3789490,
+                    CURSED_PEDESTAL_BLOCK,
+                    MobEffects.DAMAGE_RESISTANCE
+            ));
+
+    public static final DeferredBlock<Block> DESERT_BEACON_BLOCK = registerBlock("desert_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+                    .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    16747048,
+                    DESERT_PEDESTAL_BLOCK,
+                    MobEffects.REGENERATION
+            ));
+
+    public static final DeferredBlock<Block> IGNIS_BEACON_BLOCK = registerBlock("ignis_beacon_block",
+            () -> new BossBeaconBlock(
+                    BlockBehaviour.Properties.of()
+                            .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    106404, 
+                    IGNIS_BEACON_PEDESTAL_BLOCK,
+                    MobEffects.FIRE_RESISTANCE
+            ));
+
+    public static final DeferredBlock<Block> MECH_BEACON_BLOCK = registerBlock("mech_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+                    .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    16476957,
+                    MECH_BEACON_PEDESTAL_BLOCK,
+                    MobEffects.DAMAGE_BOOST
+            ));
+
+    public static final DeferredBlock<Block> MONSTROUS_BEACON_BLOCK = registerBlock("monstrous_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+                    .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    15098896,
+                    MONSTROUS_BEACON_PEDESTAL_BLOCK,
+                    MobEffects.HEALTH_BOOST
+            ));
+
+    public static final DeferredBlock<Block> STORM_BEACON_BLOCK = registerBlock("storm_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+                    .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    10148061,
+                    STORM_BEACON_PEDESTAL_BLOCK,
+                    MobEffects.JUMP
+            ));
+
+    public static final DeferredBlock<Block> VOID_BEACON_BLOCK = registerBlock("void_beacon_block",
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+                    .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
+                    6569060,
+                    VOID_BEACON_PEDESTAL_BLOCK,
+                    MobEffects.SATURATION
+            ));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

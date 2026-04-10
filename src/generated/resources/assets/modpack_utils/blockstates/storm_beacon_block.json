@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/storm_beacon_block"
+    }
+  }
+}

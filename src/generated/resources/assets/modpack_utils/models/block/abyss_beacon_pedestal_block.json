@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "modpack_utils:block/abyss_beacon_pedestal_block",
+    "side": "minecraft:block/lodestone_side",
+    "top": "minecraft:block/lodestone_top"
+  }
+}

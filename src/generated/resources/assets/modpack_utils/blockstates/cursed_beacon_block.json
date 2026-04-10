@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/cursed_beacon_block"
+    }
+  }
+}

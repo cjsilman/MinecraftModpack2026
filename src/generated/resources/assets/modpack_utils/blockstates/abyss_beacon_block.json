@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/abyss_beacon_block"
+    }
+  }
+}

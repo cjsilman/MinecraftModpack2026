@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/desert_beacon_block"
+    }
+  }
+}

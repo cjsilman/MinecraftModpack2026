@@ -4,6 +4,7 @@ import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.block.custom.BossBeaconBlock;
 import dev.csilman.modpackutils.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -11,20 +12,22 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class BossBeaconEntity extends BlockEntity {
     private static final int EFFECT_INTERVAL = 40;
-    private static final int EFFECT_RADIUS = 16;
+    private static final int EFFECT_RADIUS = 128;
 
     private boolean active = false;
     private int tickCounter = 0;
@@ -45,8 +48,14 @@ public class BossBeaconEntity extends BlockEntity {
 
         BlockPos belowPos = worldPosition.below();
         BlockState below = level.getBlockState(belowPos);
+        BlockState currentState = level.getBlockState(worldPosition);
+        DeferredBlock<Block> activatingBlock = ModBlocks.ABYSS_BEACON_PEDESTAL_BLOCK;
 
-        boolean shouldBeActive = below.is(ModBlocks.BLACK_OPAL_BLOCK);
+            if (currentState.getBlock() instanceof BossBeaconBlock beaconBlock) {
+                activatingBlock = beaconBlock.getActivatingBlock();
+            }
+
+        boolean shouldBeActive = below.is(activatingBlock);
 
         if (shouldBeActive != this.active) {
             if (shouldBeActive) {
@@ -82,18 +91,21 @@ public class BossBeaconEntity extends BlockEntity {
             return;
         }
 
+        if (!(state.getBlock() instanceof BossBeaconBlock beaconBlock)) return;
+        Holder<MobEffect> aoeEffect = beaconBlock.getAoeEffect();
+
         entity.tickCounter++;
         if (entity.tickCounter >= EFFECT_INTERVAL) {
             entity.tickCounter = 0;
             entity.checkPrerequisite();
 
             if (entity.active) {
-                entity.applyEffects();
+                entity.applyEffects(aoeEffect);
             }
         }
     }
 
-    private void applyEffects() {
+    private void applyEffects(Holder<MobEffect> aoeEffect) {
         if (level == null) {
             return;
         }
@@ -103,7 +115,7 @@ public class BossBeaconEntity extends BlockEntity {
 
         for (Player player : players) {
             player.addEffect(new MobEffectInstance(
-                    MobEffects.REGENERATION,
+                    aoeEffect,
                     EFFECT_INTERVAL + 20,
                     0,
                     true,

@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "modpack_utils:boss_beacon_block"
+          "name": "modpack_utils:mech_beacon_pedestal_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "modpack_utils:blocks/boss_beacon_block"
+  "random_sequence": "modpack_utils:blocks/mech_beacon_pedestal_block"
 }
