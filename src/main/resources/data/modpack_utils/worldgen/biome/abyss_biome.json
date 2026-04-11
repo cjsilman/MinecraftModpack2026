@@ -1,0 +1,43 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "has_precipitation": false,
+  "effects": {
+    "sky_color": 2494515,
+    "fog_color": 3553339,
+    "water_color": 4159204,
+    "water_fog_color": 7741313,
+    "grass_color": 4095534,
+    "foliage_color": 3347012,
+    "particle": {
+      "probability": 0.4,
+      "options": {
+        "type": "minecraft:white_ash"
+      }
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:end_spike",
+      "minecraft:flower_cherry",
+      "minecraft:glow_lichen",
+      "minecraft:trees_plains",
+      "minecraft:patch_grass_plain",
+      "minecraft:patch_sugar_cane"
+    ],
+    []
+  ],
+  "creature_spawn_probability": 0.0
+}

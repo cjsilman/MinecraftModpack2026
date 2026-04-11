@@ -1,0 +1,13 @@
+{
+  "structures": [
+    {
+      "structure": "cataclysm:sunken_city",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "modpack_utils:fixed",
+    "chunk_x": 0,
+    "chunk_z": 0
+  }
+}
