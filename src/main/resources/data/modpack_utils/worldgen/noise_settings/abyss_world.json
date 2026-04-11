@@ -16,7 +16,7 @@
   "spawn_target": [],
   "noise": {
     "min_y": -32,
-    "height": 400,
+    "height": 112,
     "size_horizontal": 1,
     "size_vertical": 2
   },
@@ -44,8 +44,8 @@
         "type": "minecraft:y_clamped_gradient",
         "from_y": -64,
         "to_y": 40,
-        "from_value": 2.0,
-        "to_value": -0.1
+        "from_value": 2,
+        "to_value": -1
       }
     },
     "vein_toggle": 0,

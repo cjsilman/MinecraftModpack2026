@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "dev.csilman.modpackutils.mixin.accessor",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ChunkGeneratorStructureStateMixinImpl",
+    "ServerLevelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
