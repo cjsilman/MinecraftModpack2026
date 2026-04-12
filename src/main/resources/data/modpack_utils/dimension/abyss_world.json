@@ -9,7 +9,8 @@
     },
     "settings": "modpack_utils:abyss_world",
     "allowed_structure_sets": [
-      "modpack_utils:abyss_world_structure_set"
+      "modpack_utils:abyss_world_boss_set",
+      "modpack_utils:abyss_world_spawn_set"
     ]
   }
 }

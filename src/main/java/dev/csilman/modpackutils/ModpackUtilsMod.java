@@ -3,6 +3,7 @@ package dev.csilman.modpackutils;
 import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.block.entity.ModBlockEntities;
 import dev.csilman.modpackutils.block.entity.renderer.BossBeaconEntityRenderer;
+import dev.csilman.modpackutils.component.ModDataComponentTypes;
 import dev.csilman.modpackutils.item.ModCreativeModeTabs;
 import dev.csilman.modpackutils.item.ModItems;
 import dev.csilman.modpackutils.worldgen.chunkgenerator.ModChunkGenerators;
@@ -49,6 +50,7 @@ public class ModpackUtilsMod {
         ModStructurePlacements.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModChunkGenerators.register(modEventBus);
+        ModDataComponentTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

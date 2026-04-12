@@ -1,20 +1,79 @@
 package dev.csilman.modpackutils.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import dev.csilman.modpackutils.component.MemoryDestination;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Set;
+
 public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
 
-    public static final MapCodec<BeaconPedestalBlock> CODEC = simpleCodec(BeaconPedestalBlock::new);
+    public static final MapCodec<BeaconPedestalBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            propertiesCodec(),
+            MemoryDestination.CODEC.fieldOf("destination").forGetter(b -> b.destination)
+    ).apply(instance, BeaconPedestalBlock::new));
 
-    public BeaconPedestalBlock(Properties properties) {
+    private final MemoryDestination destination;
+
+    public BeaconPedestalBlock(Properties properties, MemoryDestination destination) {
         super(properties);
+        this.destination = destination;
     }
+
+    public MemoryDestination getDestination() {
+        return destination;
+    }
+
+    public InteractionResult tryTeleport(Player player, ItemStack stack, UseOnContext context) {
+        if (destination == null) return InteractionResult.FAIL;
+
+        if (stack.getCount() < destination.requiredAmount()) {
+            player.displayClientMessage(
+                    Component.translatable("info.modpackutils.fragmented_memory.not_enough"),
+                    true
+            );
+            return InteractionResult.FAIL;
+        }
+
+        MinecraftServer server = player.getServer();
+
+        ServerLevel targetLevel = server.getLevel(destination.dimension());
+
+        if (targetLevel == null) return InteractionResult.FAIL;
+
+        if (!player.isCreative()) {
+            stack.shrink(destination.requiredAmount());
+        }
+
+        context.getLevel().playSound(null, context.getPlayer().blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1.0f, 1.0f);
+
+        ((ServerPlayer) player).teleportTo(
+                targetLevel,
+                destination.x(), destination.y(), destination.z(),
+                Set.of(),
+                player.getYRot(),
+                player.getXRot()
+        );
+
+        return InteractionResult.SUCCESS;
+    }
+
 
     @Override
     protected MapCodec<? extends HorizontalDirectionalBlock> codec() {

@@ -4,6 +4,8 @@ import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.block.custom.BeaconPedestalBlock;
 import dev.csilman.modpackutils.block.custom.BossBeaconBlock;
 import dev.csilman.modpackutils.block.entity.custom.SacredStoneBlock;
+import dev.csilman.modpackutils.component.MemoryDestination;
+import dev.csilman.modpackutils.dimension.ModDimensions;
 import dev.csilman.modpackutils.item.ModItems;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -31,28 +34,108 @@ public class ModBlocks {
 
     // Beacon Pedestal Blocks - Must be before Boss Beacons
     public static final DeferredBlock<Block> ABYSS_BEACON_PEDESTAL_BLOCK = registerBlock("abyss_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                        ModDimensions.ABYSS_WORLD,
+                        74.5,
+                        64,
+                        73.5,
+                    5
+                    )
+            )
+    );
 
     public static final DeferredBlock<Block> CURSED_PEDESTAL_BLOCK = registerBlock("cursed_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.ABYSS_WORLD,
+                            0,
+                            100,
+                            0,
+                            5
+                    )
+            )
+    );
 
     public static final DeferredBlock<Block> DESERT_PEDESTAL_BLOCK = registerBlock("desert_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.ABYSS_WORLD,
+                            0,
+                            100,
+                            0,
+                            5
+                    )
+            )
+    );
 
     public static final DeferredBlock<Block> IGNIS_BEACON_PEDESTAL_BLOCK = registerBlock("ignis_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.ABYSS_WORLD,
+                            0,
+                            100,
+                            0,
+                            5
+                    )
+            )
+    );
 
     public static final DeferredBlock<Block> MECH_BEACON_PEDESTAL_BLOCK = registerBlock("mech_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.ABYSS_WORLD,
+                            0,
+                            100,
+                            0,
+                            5
+                    )
+            )
+    );
 
     public static final DeferredBlock<Block> MONSTROUS_BEACON_PEDESTAL_BLOCK = registerBlock("monstrous_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.ABYSS_WORLD,
+                            0,
+                            100,
+                            0,
+                            5
+                    )
+            )
+    );
 
     public static final DeferredBlock<Block> STORM_BEACON_PEDESTAL_BLOCK = registerBlock("storm_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.ABYSS_WORLD,
+                            0,
+                            100,
+                            0,
+                            5
+                    )
+            )
+    );
 
     public static final DeferredBlock<Block> VOID_BEACON_PEDESTAL_BLOCK = registerBlock("void_beacon_pedestal_block",
-            () -> new BeaconPedestalBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.ABYSS_WORLD,
+                            0,
+                            100,
+                            0,
+                            5
+                    )
+            )
+    );
 
     // Boss Beacon Blocks
     public static final DeferredBlock<Block> ABYSS_BEACON_BLOCK = registerBlock("abyss_beacon_block",

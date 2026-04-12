@@ -4,7 +4,27 @@
   "block.modpack_utils.black_opal_block": "Black Opal Block",
   "block.modpack_utils.boss_beacon_block": "Boss Beacon Block",
   "block.modpack_utils.sacred_stone": "Sacred Stone",
-  "block.modpack_utils.beacon_pedestal_block": "Beacon Pedestal Block",
 
-  "item.modpack_utils.god_thread": "God Thread"
+  "block.modpack_utils.abyss_beacon_pedestal_block": "Abyss Pedestal",
+  "block.modpack_utils.cursed_beacon_pedestal_block": "Cursed Pedestal",
+  "block.modpack_utils.desert_beacon_pedestal_block": "Desert Pedestal",
+  "block.modpack_utils.ignis_beacon_pedestal_block": "Ignis Pedestal",
+  "block.modpack_utils.mech_beacon_pedestal_block": "Mech Pedestal",
+  "block.modpack_utils.monstrous_beacon_pedestal_block": "Monstrous Pedestal",
+  "block.modpack_utils.storm_beacon_pedestal_block": "Storm Pedestal",
+  "block.modpack_utils.void_beacon_pedestal_block": "Void Pedestal",
+
+  "block.modpack_utils.abyss_beacon_block": "Abyss Beacon",
+  "block.modpack_utils.cursed_beacon_block": "Cursed Beacon",
+  "block.modpack_utils.desert_beacon_block": "Desert Beacon",
+  "block.modpack_utils.ignis_beacon_block": "Ignis Beacon",
+  "block.modpack_utils.mech_beacon_block": "Mech Beacon",
+  "block.modpack_utils.monstrous_beacon_block": "Monstrous Beacon",
+  "block.modpack_utils.storm_beacon_block": "Storm Beacon",
+  "block.modpack_utils.void_beacon_block": "Void Beacon",
+
+  "item.modpack_utils.god_thread": "God Thread",
+  "item.modpack_utils.fragmented_memory": "Fragmented Memory",
+
+  "info.modpackutils.fragmented_memory.not_enough": "More must be obtained to construct a full memory."
 }

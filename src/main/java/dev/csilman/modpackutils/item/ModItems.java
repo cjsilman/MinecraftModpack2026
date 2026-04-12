@@ -1,6 +1,7 @@
 package dev.csilman.modpackutils.item;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
+import dev.csilman.modpackutils.item.custom.FragmentedMemoryItem;
 import dev.csilman.modpackutils.item.custom.GodThreadItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -12,6 +13,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> GOD_THREAD = ITEMS.register("god_thread",
             () -> new GodThreadItem(new Item.Properties().fireResistant()));
+
+    public static final DeferredItem<Item> FRAGMENTED_MEMORY = ITEMS.register("fragmented_memory",
+            () -> new FragmentedMemoryItem(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

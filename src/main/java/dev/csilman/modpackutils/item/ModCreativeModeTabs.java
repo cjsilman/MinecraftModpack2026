@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.SACRED_STONE);
                         output.accept(ModItems.GOD_THREAD);
+                        output.accept(ModItems.FRAGMENTED_MEMORY);
 
                         output.accept(ModBlocks.ABYSS_BEACON_BLOCK);
                         output.accept(ModBlocks.CURSED_BEACON_BLOCK);
