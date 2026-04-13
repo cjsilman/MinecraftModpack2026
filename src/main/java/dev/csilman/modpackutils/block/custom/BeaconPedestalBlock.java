@@ -3,6 +3,8 @@ package dev.csilman.modpackutils.block.custom;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.csilman.modpackutils.component.MemoryDestination;
+import dev.csilman.modpackutils.item.ModItems;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -14,10 +16,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Set;
@@ -45,7 +49,7 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
 
         if (stack.getCount() < destination.requiredAmount()) {
             player.displayClientMessage(
-                    Component.translatable("info.modpackutils.fragmented_memory.not_enough"),
+                    Component.translatable("info.modpack_utils.fragmented_memory.not_enough"),
                     true
             );
             return InteractionResult.FAIL;
@@ -74,6 +78,20 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
         return InteractionResult.SUCCESS;
     }
 
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        ItemStack item = player.getMainHandItem();
+
+        if (!item.is(ModItems.FRAGMENTED_MEMORY)){
+            player.displayClientMessage(
+                    Component.translatable("info.modpack_utils.beacon_pedestal.empty_interact"),
+                    true
+            );
+            return InteractionResult.SUCCESS;
+        }
+
+        return InteractionResult.PASS;
+    }
 
     @Override
     protected MapCodec<? extends HorizontalDirectionalBlock> codec() {

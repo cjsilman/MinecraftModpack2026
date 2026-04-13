@@ -25,6 +25,11 @@
 
   "item.modpack_utils.god_thread": "God Thread",
   "item.modpack_utils.fragmented_memory": "Fragmented Memory",
+  "item.modpack_utils.abyss_heart": "Abyss Heart",
 
-  "info.modpackutils.fragmented_memory.not_enough": "More must be obtained to construct a full memory."
+  "info.modpack_utils.fragmented_memory.not_enough": "More must be obtained to construct a full memory.",
+  "info.modpack_utils.beacon_pedestal.empty_interact": "It feels like this block wants to take me somewhere. Somewhere... familiar.",
+  "info.modpack_utils.sacred_stone.spawn_warning": "A Primoridal Being has taken notice.",
+
+  "tooltip.modpack_utils.primordial_heart.tooltip.1": "Lay it to rest upon an ancient stone, and something greater shall emerge."
 }

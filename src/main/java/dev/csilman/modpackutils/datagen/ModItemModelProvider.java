@@ -22,6 +22,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(ModItems.GOD_THREAD.get());
         basicItem(ModItems.FRAGMENTED_MEMORY.get());
+        basicItem(ModItems.ABYSS_HEART.get());
         horizontalBlockItem(ModBlocks.ABYSS_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.CURSED_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.DESERT_PEDESTAL_BLOCK);
