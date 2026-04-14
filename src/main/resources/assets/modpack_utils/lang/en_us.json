@@ -27,7 +27,7 @@
   "item.modpack_utils.fragmented_memory": "Fragmented Memory",
   "item.modpack_utils.abyss_heart": "Abyss Heart",
 
-  "info.modpack_utils.fragmented_memory.not_enough": "More must be obtained to construct a full memory.",
+  "info.modpack_utils.fragmented_memory.not_enough": "More fragments must be obtained to construct a full memory.",
   "info.modpack_utils.beacon_pedestal.empty_interact": "It feels like this block wants to take me somewhere. Somewhere... familiar.",
   "info.modpack_utils.sacred_stone.spawn_warning": "A Primoridal Being has taken notice.",
 

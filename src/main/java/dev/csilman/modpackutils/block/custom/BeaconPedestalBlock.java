@@ -12,6 +12,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -74,6 +76,8 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
                 player.getYRot(),
                 player.getXRot()
         );
+
+        player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 15));
 
         return InteractionResult.SUCCESS;
     }
