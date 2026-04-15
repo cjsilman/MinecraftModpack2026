@@ -17,7 +17,7 @@
   "noise": {
     "min_y": 0,
     "height": 80,
-    "size_horizontal": 1,
+    "size_horizontal": 2,
     "size_vertical": 2
   },
   "noise_router": {
@@ -38,7 +38,7 @@
         "type": "minecraft:squeeze",
         "argument": {
           "type": "minecraft:mul",
-          "argument1": 0.64,
+          "argument1": 0.4,
           "argument2": {
             "type": "minecraft:interpolated",
             "argument": {
