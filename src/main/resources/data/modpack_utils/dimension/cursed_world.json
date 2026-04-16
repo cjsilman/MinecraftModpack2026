@@ -10,7 +10,9 @@
     "settings": "modpack_utils:cursed_world",
     "allowed_structure_sets": [
       "modpack_utils:cursed_world_boss_set",
-      "modpack_utils:cursed_world_spawn_set"
+      "modpack_utils:cursed_world_spawn_set",
+      "modpack_utils:cursed_world_extra1_set",
+      "modpack_utils:cursed_world_extra2_set"
     ]
   }
 }

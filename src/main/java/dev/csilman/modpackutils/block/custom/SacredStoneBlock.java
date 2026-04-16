@@ -91,7 +91,7 @@ public class SacredStoneBlock extends Block {
                         0.05    // speed
                 );
 
-                if (level.random.nextFloat() < 0.90f) { // X% chance
+                if (level.random.nextFloat() < 0.05f) { // 5% chance
                     SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, serverLevel, pos, 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
                     for (ServerPlayer player : nearbyPlayers) {
                         player.displayClientMessage(
