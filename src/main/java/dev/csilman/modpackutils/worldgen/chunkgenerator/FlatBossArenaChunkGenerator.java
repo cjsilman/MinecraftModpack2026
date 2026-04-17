@@ -8,16 +8,20 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
 import net.minecraft.world.level.levelgen.FlatLevelSource;
 import net.minecraft.world.level.levelgen.RandomState;
+import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorSettings;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -64,6 +68,14 @@ public class FlatBossArenaChunkGenerator extends FlatLevelSource {
 
         return ChunkGeneratorStructureState.createForNormal(randomState, seed, getBiomeSource(),
                 new FilteredStructureSetLookup(structureSetLookup, filtered.collect(Collectors.toSet())));
+    }
+
+    @Override
+    public CompletableFuture<ChunkAccess> fillFromNoise(Blender blender, RandomState randomState, StructureManager structureManager, ChunkAccess chunk) {
+        if (!isInsideBoundary(chunk.getPos())) {
+            return CompletableFuture.completedFuture(chunk);
+        }
+        return super.fillFromNoise(blender, randomState, structureManager, chunk);
     }
 
     @Override

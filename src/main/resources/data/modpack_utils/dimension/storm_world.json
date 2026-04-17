@@ -10,6 +10,94 @@
           "height": 1
         },
         {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        },
+        {
           "block": "minecraft:water",
           "height": 1
         }
@@ -20,7 +108,8 @@
     },
     "chunk_radius": 10,
     "allowed_structure_sets": [
-      "modpack_utils:storm_world_boss_set"
+      "modpack_utils:storm_world_boss_set",
+      "modpack_utils:storm_world_spawn_set"
     ]
   }
 }

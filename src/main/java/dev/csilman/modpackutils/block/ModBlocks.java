@@ -114,9 +114,9 @@ public class ModBlocks {
                     BlockBehaviour.Properties.of().strength(20.0f),
                     new MemoryDestination(
                             ModDimensions.STORM_WORLD,
-                            75.5,
-                            100,
-                            75.5,
+                            150.5,
+                            150,
+                            7.5,
                             5
                     )
             )
