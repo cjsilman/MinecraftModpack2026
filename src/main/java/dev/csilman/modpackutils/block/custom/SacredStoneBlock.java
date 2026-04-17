@@ -49,6 +49,16 @@ public class SacredStoneBlock extends Block {
                         new AABB(pos).inflate(radius)
                 );
 
+                
+                level.playSound(
+                        null,
+                        pos,
+                        SoundEvents.WITHER_SPAWN,
+                        SoundSource.BLOCKS,
+                        1.0f,
+                        0.5f
+                );
+
                 for (ServerPlayer player : nearbyPlayers) {
                     player.addEffect(new MobEffectInstance(
                             MobEffects.BLINDNESS,
@@ -66,15 +76,6 @@ public class SacredStoneBlock extends Block {
                             true
                     ));
                 }
-
-                level.playSound(
-                        null,
-                        pos,
-                        SoundEvents.WITHER_SPAWN,
-                        SoundSource.BLOCKS,
-                        1.0f,
-                        0.5f
-                );
 
                 LightningBolt lightning = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
                 lightning.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);

@@ -20,6 +20,13 @@ public class ModelItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(ModTags.Items.TRANSFORMABLE_ITEMS)
-                .add(ModItems.ABYSS_HEART.get());
+                .add(ModItems.ABYSS_HEART.get())
+                .add(ModItems.CURSED_HEART.get())
+                .add(ModItems.DESERT_HEART.get())
+                .add(ModItems.IGNIS_HEART.get())
+                .add(ModItems.MECH_HEART.get())
+                .add(ModItems.MONSTROUS_HEART.get())
+                .add(ModItems.STORM_HEART.get())
+                .add(ModItems.VOID_HEART.get());
     }
 }

@@ -1,5 +1,12 @@
 {
   "values": [
-    "modpack_utils:abyss_heart"
+    "modpack_utils:abyss_heart",
+    "modpack_utils:cursed_heart",
+    "modpack_utils:desert_heart",
+    "modpack_utils:ignis_heart",
+    "modpack_utils:mech_heart",
+    "modpack_utils:monstrous_heart",
+    "modpack_utils:storm_heart",
+    "modpack_utils:void_heart"
   ]
 }

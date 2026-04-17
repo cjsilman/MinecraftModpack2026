@@ -26,6 +26,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GOD_THREAD);
                         output.accept(ModItems.FRAGMENTED_MEMORY);
                         output.accept(ModItems.ABYSS_HEART);
+                        output.accept(ModItems.CURSED_HEART);
+                        output.accept(ModItems.DESERT_HEART);
+                        output.accept(ModItems.IGNIS_HEART);
+                        output.accept(ModItems.MECH_HEART);
+                        output.accept(ModItems.MONSTROUS_HEART);
+                        output.accept(ModItems.STORM_HEART);
+                        output.accept(ModItems.VOID_HEART);
 
                         output.accept(ModBlocks.ABYSS_BEACON_BLOCK);
                         output.accept(ModBlocks.CURSED_BEACON_BLOCK);

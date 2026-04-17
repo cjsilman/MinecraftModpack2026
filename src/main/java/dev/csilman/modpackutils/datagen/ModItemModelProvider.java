@@ -23,6 +23,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.GOD_THREAD.get());
         basicItem(ModItems.FRAGMENTED_MEMORY.get());
         basicItem(ModItems.ABYSS_HEART.get());
+        basicItem(ModItems.CURSED_HEART.get());
+        basicItem(ModItems.DESERT_HEART.get());
+        basicItem(ModItems.IGNIS_HEART.get());
+        basicItem(ModItems.MECH_HEART.get());
+        basicItem(ModItems.MONSTROUS_HEART.get());
+        basicItem(ModItems.STORM_HEART.get());
+        basicItem(ModItems.VOID_HEART.get());
         horizontalBlockItem(ModBlocks.ABYSS_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.CURSED_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.DESERT_PEDESTAL_BLOCK);
