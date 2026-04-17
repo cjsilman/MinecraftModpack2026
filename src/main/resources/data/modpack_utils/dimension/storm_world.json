@@ -1,0 +1,26 @@
+{
+  "type": "modpack_utils:storm_world_type",
+  "generator": {
+    "type": "modpack_utils:boss_arena_flat",
+    "settings": {
+      "biome": "minecraft:warm_ocean",
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 1
+        },
+        {
+          "block": "minecraft:water",
+          "height": 1
+        }
+      ],
+      "structure_overrides": [
+        "cataclysm:acropolis"
+      ]
+    },
+    "chunk_radius": 10,
+    "allowed_structure_sets": [
+      "modpack_utils:storm_world_boss_set"
+    ]
+  }
+}

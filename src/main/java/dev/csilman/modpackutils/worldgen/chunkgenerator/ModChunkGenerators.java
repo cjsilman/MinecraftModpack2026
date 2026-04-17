@@ -16,6 +16,10 @@ public class ModChunkGenerators {
             MapCodec<BossArenaChunkGenerator>> BOSS_ARENA =
             REGISTER.register("boss_arena", () -> BossArenaChunkGenerator.CODEC);
 
+    public static final DeferredHolder<MapCodec<? extends ChunkGenerator>,
+            MapCodec<FlatBossArenaChunkGenerator>> BOSS_ARENA_FLAT =
+            REGISTER.register("boss_arena_flat", () -> FlatBossArenaChunkGenerator.CODEC);
+
     public static void register(IEventBus bus) {
         REGISTER.register(bus);
     }
