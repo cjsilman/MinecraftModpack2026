@@ -1,0 +1,12 @@
+{
+  "type": "modpack_utils:modpack_loot_modifier",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:blocks/dirt"
+    }
+  ],
+  "field1": "somestring",
+  "quantity": 10,
+  "item": "modpack_utils:fragmented_memory"
+}

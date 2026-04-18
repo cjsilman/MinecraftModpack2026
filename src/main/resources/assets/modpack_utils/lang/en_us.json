@@ -39,5 +39,6 @@
   "info.modpack_utils.beacon_pedestal.empty_interact": "It feels like this block wants to take me somewhere. Somewhere... familiar.",
   "info.modpack_utils.sacred_stone.spawn_warning": "A Primoridal being has taken notice.",
 
-  "tooltip.modpack_utils.primordial_heart.tooltip.1": "Lay it to rest upon an ancient stone, and something greater shall emerge."
+  "tooltip.modpack_utils.primordial_heart.tooltip.1": "Lay it to rest upon an ancient stone, and something greater shall emerge.",
+  "tooltip.modpack_utils.fragmented_memory.tooltip.1": "A key piece to a forgotten time."
 }
