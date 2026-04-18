@@ -1,0 +1,12 @@
+{
+  "values": [
+    "modpack_utils:abyss_beacon_block",
+    "modpack_utils:cursed_beacon_block",
+    "modpack_utils:desert_beacon_block",
+    "modpack_utils:ignis_beacon_block",
+    "modpack_utils:mech_beacon_block",
+    "modpack_utils:monstrous_beacon_block",
+    "modpack_utils:storm_beacon_block",
+    "modpack_utils:void_beacon_block"
+  ]
+}

@@ -19,6 +19,7 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
+        public static final TagKey<Item> NO_BEACON_PEDESTAL_INTERACT = createTag("no_beacon_pedestal_interact");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(ModpackUtilsMod.MOD_ID, name));

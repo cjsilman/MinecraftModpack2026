@@ -2,8 +2,10 @@ package dev.csilman.modpackutils.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.component.MemoryDestination;
 import dev.csilman.modpackutils.item.ModItems;
+import dev.csilman.modpackutils.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
@@ -86,7 +88,7 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         ItemStack item = player.getMainHandItem();
 
-        if (!item.is(ModItems.FRAGMENTED_MEMORY)){
+        if (!item.is(ModItems.FRAGMENTED_MEMORY) && !(item.is(ModTags.Items.NO_BEACON_PEDESTAL_INTERACT))){
             player.displayClientMessage(
                     Component.translatable("info.modpack_utils.beacon_pedestal.empty_interact"),
                     true
