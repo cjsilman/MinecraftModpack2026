@@ -49,7 +49,7 @@ public class ModBlocks {
             () -> new BeaconPedestalBlock(
                     BlockBehaviour.Properties.of().strength(20.0f),
                     new MemoryDestination(
-                            ModDimensions.CURSED_WORLD,
+                            ModDimensions.ABYSS_WORLD,
                             87.5,
                             100,
                             74.5,
@@ -62,10 +62,10 @@ public class ModBlocks {
             () -> new BeaconPedestalBlock(
                     BlockBehaviour.Properties.of().strength(20.0f),
                     new MemoryDestination(
-                            ModDimensions.ABYSS_WORLD,
-                            0,
+                            ModDimensions.DESERT_WORLD,
+                            39.5,
                             100,
-                            0,
+                            -117.5,
                             5
                     )
             )

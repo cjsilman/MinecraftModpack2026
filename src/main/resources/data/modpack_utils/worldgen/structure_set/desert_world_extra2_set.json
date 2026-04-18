@@ -3,16 +3,16 @@
     // If two or more structures in this list can spawn in a biome at a spot, a random one based on weight is chosen to spawn
   "structures": [
     {
-      "structure": "modpack_utils:landing_point",
+      "structure": "cataclysm:desert_occupied_village",
       "weight": 1
     }
   ],
   "placement": {
     "type": "modpack_utils:fixed",
-    "chunk_x": 5,
-    "chunk_z": 5,
+    "chunk_x": -3,
+    "chunk_z": 3,
     "dimensions": [
-      "modpack_utils:cursed_world"
+      "modpack_utils:desert_world"
     ]
   }
 }

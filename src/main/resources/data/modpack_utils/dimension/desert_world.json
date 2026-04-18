@@ -1,0 +1,18 @@
+{
+  "type": "modpack_utils:desert_world_type",
+  "generator": {
+    "type": "modpack_utils:boss_arena",
+    "chunk_radius": 10,
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:desert"
+    },
+    "settings": "modpack_utils:desert_world",
+    "allowed_structure_sets": [
+      "modpack_utils:desert_world_boss_set",
+      "modpack_utils:desert_world_spawn_set",
+      "modpack_utils:desert_world_extra1_set",
+      "modpack_utils:desert_world_extra2_set"
+    ]
+  }
+}

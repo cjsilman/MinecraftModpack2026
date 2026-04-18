@@ -112,4 +112,11 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
+
+    @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
+
+
+        super.neighborChanged(state, level, pos, neighborBlock, neighborPos, movedByPiston);
+    }
 }
