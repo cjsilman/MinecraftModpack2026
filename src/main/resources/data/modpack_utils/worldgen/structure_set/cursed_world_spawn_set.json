@@ -3,16 +3,16 @@
     // If two or more structures in this list can spawn in a biome at a spot, a random one based on weight is chosen to spawn
   "structures": [
     {
-      "structure": "modpack_utils:spawn_altar",
+      "structure": "modpack_utils:landing_point",
       "weight": 1
     }
   ],
   "placement": {
     "type": "modpack_utils:fixed",
-    "chunk_x": 0,
-    "chunk_z": -6,
+    "chunk_x": 9,
+    "chunk_z": 9,
     "dimensions": [
-      "minecraft:overworld"
+      "modpack_utils:cursed_world"
     ]
   }
 }

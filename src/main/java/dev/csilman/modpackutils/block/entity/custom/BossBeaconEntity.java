@@ -6,10 +6,12 @@ import dev.csilman.modpackutils.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
@@ -27,7 +29,7 @@ import java.util.List;
 
 public class BossBeaconEntity extends BlockEntity {
     private static final int EFFECT_INTERVAL = 40;
-    private static final int EFFECT_RADIUS = 128;
+    private static final int EFFECT_RADIUS = 160;
 
     private boolean active = false;
     private int tickCounter = 0;
@@ -39,6 +41,33 @@ public class BossBeaconEntity extends BlockEntity {
 
     public boolean isActive() {
         return active;
+    }
+
+    private void spawnActivationShockwave() {
+        if (!(level instanceof ServerLevel serverLevel)) return;
+
+        int rings = 8;
+        int particlesPerRing = 120;
+        double maxRadius = 12.0;
+
+        for (int ring = 1; ring <= rings; ring++) {
+            double radius = (maxRadius / rings) * ring;
+
+            for (int i = 0; i < particlesPerRing; i++) {
+                double angle = (2 * Math.PI / particlesPerRing) * i;
+                double x = worldPosition.getX() + 0.5 + radius * Math.cos(angle);
+                double z = worldPosition.getZ() + 0.5 + radius * Math.sin(angle);
+                double y = worldPosition.getY() - 0.5;
+
+                serverLevel.sendParticles(
+                        ParticleTypes.REVERSE_PORTAL,  // swap for any ParticleType you prefer
+                        x, y, z,
+                        1,     // count
+                        0, 0, 0, // offset x/y/z
+                        0.05   // speed
+                );
+            }
+        }
     }
 
     public void checkPrerequisite() {
@@ -65,8 +94,10 @@ public class BossBeaconEntity extends BlockEntity {
                         SoundEvents.END_PORTAL_SPAWN,
                         SoundSource.BLOCKS,
                         1.0f,
-                        1.0f
+                        0.7f
                 );
+
+                spawnActivationShockwave();
             }
             else {
                 level.playSound(

@@ -1,0 +1,19 @@
+{
+  "type": "modpack_utils:cursed_world_type",
+  "generator": {
+    "type": "modpack_utils:boss_arena",
+    "chunk_radius": 20,
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:snowy_plains"
+    },
+    "settings": "modpack_utils:cursed_world",
+    "allowed_structure_sets": [
+      "modpack_utils:cursed_world_boss_set",
+      "modpack_utils:cursed_world_spawn_set",
+      "modpack_utils:cursed_world_extra1_set",
+      "modpack_utils:cursed_world_extra2_set",
+      "modpack_utils:cursed_world_extra3_set"
+    ]
+  }
+}
