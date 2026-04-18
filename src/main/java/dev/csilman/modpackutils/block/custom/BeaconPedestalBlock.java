@@ -77,7 +77,7 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
                 player.getXRot()
         );
 
-        player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 400));
+        player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200));
 
         return InteractionResult.SUCCESS;
     }

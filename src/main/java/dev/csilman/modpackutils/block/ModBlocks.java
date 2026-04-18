@@ -10,6 +10,7 @@ import dev.csilman.modpackutils.item.ModItems;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
@@ -131,6 +132,19 @@ public class ModBlocks {
                             100,
                             0,
                             5
+                    )
+            )
+    );
+
+    public static final DeferredBlock<Block> HOME_BEACON_PEDESTAL_BLOCK = registerBlock("home_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            Level.OVERWORLD,
+                            0,
+                            100,
+                            0,
+                            1
                     )
             )
     );

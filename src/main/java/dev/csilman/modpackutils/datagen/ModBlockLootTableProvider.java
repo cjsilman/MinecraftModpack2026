@@ -34,6 +34,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.MONSTROUS_BEACON_PEDESTAL_BLOCK.get());
         dropSelf(ModBlocks.STORM_BEACON_PEDESTAL_BLOCK.get());
         dropSelf(ModBlocks.VOID_BEACON_PEDESTAL_BLOCK.get());
+        dropSelf(ModBlocks.HOME_BEACON_PEDESTAL_BLOCK.get());
     }
 
     @Override
