@@ -3,6 +3,7 @@ package dev.csilman.modpackutils.block.entity.custom;
 import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.block.custom.BossBeaconBlock;
 import dev.csilman.modpackutils.block.entity.ModBlockEntities;
+import dev.csilman.modpackutils.util.GlobalBeaconTracker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -56,11 +57,11 @@ public class BossBeaconEntity extends BlockEntity {
             for (int i = 0; i < particlesPerRing; i++) {
                 double angle = (2 * Math.PI / particlesPerRing) * i;
                 double x = worldPosition.getX() + 0.5 + radius * Math.cos(angle);
-                double z = worldPosition.getZ() + 0.5 + radius * Math.sin(angle);
                 double y = worldPosition.getY() - 0.5;
+                double z = worldPosition.getZ() + 0.5 + radius * Math.sin(angle);
 
                 serverLevel.sendParticles(
-                        ParticleTypes.REVERSE_PORTAL,  // swap for any ParticleType you prefer
+                        ParticleTypes.REVERSE_PORTAL,
                         x, y, z,
                         1,     // count
                         0, 0, 0, // offset x/y/z
@@ -112,6 +113,14 @@ public class BossBeaconEntity extends BlockEntity {
             this.active = shouldBeActive;
             level.setBlock(worldPosition, getBlockState().setValue(BossBeaconBlock.ACTIVE, active), 3);
             setChanged();
+
+            if (level instanceof ServerLevel serverLevel) {
+                ServerLevel overworld = serverLevel.getServer().getLevel(Level.OVERWORLD);
+                if (overworld != null) {
+                    GlobalBeaconTracker.onBeaconStateChanged(overworld);
+                }
+            }
+
         }
 
 

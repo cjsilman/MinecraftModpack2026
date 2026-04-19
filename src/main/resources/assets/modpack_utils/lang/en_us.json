@@ -40,5 +40,8 @@
   "info.modpack_utils.sacred_stone.spawn_warning": "A Primoridal being has taken notice.",
 
   "tooltip.modpack_utils.primordial_heart.tooltip.1": "Lay it to rest upon an ancient stone, and something greater shall emerge.",
-  "tooltip.modpack_utils.fragmented_memory.tooltip.1": "A key piece in gaining access to a forgotten time."
+  "tooltip.modpack_utils.fragmented_memory.tooltip.1": "A key piece in gaining access to a forgotten time.",
+
+  "info.modpack_utils.altar_event.awakening_start_title": "",
+  "info.modpack_utils.altar_event.awakening_start_subtitle": "Something stirs at the altar..."
 }

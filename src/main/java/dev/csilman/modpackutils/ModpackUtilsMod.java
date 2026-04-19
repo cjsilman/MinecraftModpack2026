@@ -7,8 +7,11 @@ import dev.csilman.modpackutils.component.ModDataComponentTypes;
 import dev.csilman.modpackutils.item.ModCreativeModeTabs;
 import dev.csilman.modpackutils.item.ModItems;
 import dev.csilman.modpackutils.lootmodifiers.ModLootModifiers;
+import dev.csilman.modpackutils.util.AltarStructuresScanner;
 import dev.csilman.modpackutils.worldgen.chunkgenerator.ModChunkGenerators;
 import dev.csilman.modpackutils.worldgen.placement.ModStructurePlacements;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
 
@@ -87,8 +90,10 @@ public class ModpackUtilsMod {
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+        ServerLevel overworld = event.getServer().getLevel(Level.OVERWORLD);
+        if (overworld != null) {
+            AltarStructuresScanner.scanIfNeeded(overworld);
+        }
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

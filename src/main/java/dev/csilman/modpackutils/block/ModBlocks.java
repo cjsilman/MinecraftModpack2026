@@ -50,7 +50,7 @@ public class ModBlocks {
                     BlockBehaviour.Properties.of().strength(20.0f),
                     new MemoryDestination(
                             ModDimensions.CURSED_WORLD,
-                            87.5,
+                            151.5,
                             100,
                             138.5,
                             5
