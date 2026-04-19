@@ -63,4 +63,12 @@ public class FixedStructurePlacement extends StructurePlacement {
     public StructurePlacementType<?> type() {
         return ModStructurePlacements.FIXED_PLACEMENT.get();
     }
+
+    public int getChunkX() {
+        return chunkX;
+    }
+
+    public int getChunkZ() {
+        return chunkZ;
+    }
 }

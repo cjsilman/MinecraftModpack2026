@@ -1,14 +1,14 @@
 package dev.csilman.modpackutils.worldgen.chunkgenerator;
 
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.csilman.modpackutils.util.FilteredStructureSetLookup;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.SectionPos;
+import dev.csilman.modpackutils.worldgen.placement.FixedStructurePlacement;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.BiomeManager;
@@ -19,7 +19,10 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
 import net.minecraft.world.level.levelgen.*;
 import net.minecraft.world.level.levelgen.blending.Blender;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
+import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Set;
@@ -172,5 +175,33 @@ public class BossArenaChunkGenerator extends NoiseBasedChunkGenerator {
     @Override
     public BiomeSource getBiomeSource() {
         return this.noiseChunkGenerator.getBiomeSource();
+    }
+
+    @Override
+    public @Nullable Pair<BlockPos, Holder<Structure>> findNearestMapStructure(ServerLevel level, HolderSet<Structure> structure, BlockPos pos, int searchRadius, boolean skipKnownStructures) {
+        ChunkGeneratorStructureState state = level.getChunkSource().getGeneratorState();
+
+        for (Holder<Structure> structureHolder : structure) {
+            List<StructurePlacement> placements = state.getPlacementsForStructure(structureHolder);
+
+            for (StructurePlacement placement : placements) {
+                if (placement instanceof FixedStructurePlacement fixed) {
+                    if (!fixed.isStructureChunk(state, fixed.getChunkX(), fixed.getChunkZ())) {
+                        continue;
+                    }
+
+                    BlockPos structurePos = new BlockPos(
+                            fixed.getChunkX()*16 +8,
+                            pos.getY(),
+                            fixed.getChunkX()*16 +8
+                    );
+
+                    return Pair.of(structurePos, structureHolder);
+
+                }
+            }
+        }
+
+        return super.findNearestMapStructure(level, structure, pos, searchRadius, skipKnownStructures);
     }
 }
