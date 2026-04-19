@@ -46,9 +46,9 @@ public class BossBeaconEntity extends BlockEntity {
     private void spawnActivationShockwave() {
         if (!(level instanceof ServerLevel serverLevel)) return;
 
-        int rings = 8;
+        int rings = 32;
         int particlesPerRing = 120;
-        double maxRadius = 12.0;
+        double maxRadius = 32.0;
 
         for (int ring = 1; ring <= rings; ring++) {
             double radius = (maxRadius / rings) * ring;

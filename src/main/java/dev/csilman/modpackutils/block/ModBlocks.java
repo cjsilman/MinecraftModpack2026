@@ -75,10 +75,10 @@ public class ModBlocks {
             () -> new BeaconPedestalBlock(
                     BlockBehaviour.Properties.of().strength(20.0f),
                     new MemoryDestination(
-                            ModDimensions.ABYSS_WORLD,
-                            0,
-                            100,
-                            0,
+                            ModDimensions.IGNIS_WORLD,
+                            -5.5,
+                            80,
+                            -102.5,
                             5
                     )
             )

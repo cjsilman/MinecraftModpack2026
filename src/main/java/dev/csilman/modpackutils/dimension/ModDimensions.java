@@ -15,6 +15,10 @@ public class ModDimensions {
             Registries.DIMENSION,
             ResourceLocation.fromNamespaceAndPath(ModpackUtilsMod.MOD_ID, "cursed_world")
     );
+    public static final ResourceKey<Level> IGNIS_WORLD = ResourceKey.create(
+            Registries.DIMENSION,
+            ResourceLocation.fromNamespaceAndPath(ModpackUtilsMod.MOD_ID, "ignis_world")
+    );
     public static final ResourceKey<Level> DESERT_WORLD = ResourceKey.create(
             Registries.DIMENSION,
             ResourceLocation.fromNamespaceAndPath(ModpackUtilsMod.MOD_ID, "desert_world")
