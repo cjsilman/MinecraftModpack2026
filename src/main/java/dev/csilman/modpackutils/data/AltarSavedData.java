@@ -1,7 +1,7 @@
 package dev.csilman.modpackutils.data;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
-import dev.csilman.modpackutils.util.AltarEventPhase;
+import dev.csilman.modpackutils.util.altar.AltarEventPhase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -24,6 +24,7 @@ public class AltarSavedData extends SavedData {
     // Expecting to only need to scan ONCE on server start, as all pedestals will exist at the start of the game.
     private boolean pedestalsScanned = false;
     private BlockPos altarMidpoint = new BlockPos(0, 0, 0);
+    private boolean waveSpawned = false;
 
     public static AltarSavedData get(ServerLevel overworld) {
         return overworld.getDataStorage().computeIfAbsent(
@@ -42,6 +43,7 @@ public class AltarSavedData extends SavedData {
         data.ticksInPhase = compoundTag.getInt("ticksInPhase");
         data.bossSpawned = compoundTag.getBoolean("bossSpawned");
         data.pedestalsScanned = compoundTag.getBoolean("pedestalsScanned");
+        data.waveSpawned = compoundTag.getBoolean("waveSpawned");
 
         if (compoundTag.contains("pedestals")) {
             int[] raw = compoundTag.getIntArray("pedestals");
@@ -63,6 +65,7 @@ public class AltarSavedData extends SavedData {
         compoundTag.putInt("ticksInPhase", ticksInPhase);
         compoundTag.putBoolean("bossSpawned", bossSpawned);
         compoundTag.putBoolean("pedestalsScanned", pedestalsScanned);
+        compoundTag.putBoolean("waveSpawned", waveSpawned);
 
         // # of pedestals registered at first server run (See GlobalBeaconTracker)
         int[] raw = new int[registeredPedestals.size()*3];
@@ -157,8 +160,18 @@ public class AltarSavedData extends SavedData {
         setDirty();
     }
 
+    public boolean isWaveSpawned() {
+        return waveSpawned;
+    }
+
+    public void setWaveSpawned(boolean waveSpawned) {
+        this.waveSpawned = waveSpawned;
+        setDirty();
+    }
+
     public boolean isDormant()  { return phase == AltarEventPhase.DORMANT; }
     public boolean isAwakening(){ return phase == AltarEventPhase.AWAKENING; }
     public boolean isSiege()    { return phase == AltarEventPhase.SIEGE; }
+    public boolean isBoss() { return phase == AltarEventPhase.BOSS; }
     public boolean isDefeated() { return phase == AltarEventPhase.DEFEATED; }
 }

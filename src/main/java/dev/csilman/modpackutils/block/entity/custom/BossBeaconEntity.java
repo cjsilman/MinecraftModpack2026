@@ -3,7 +3,7 @@ package dev.csilman.modpackutils.block.entity.custom;
 import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.block.custom.BossBeaconBlock;
 import dev.csilman.modpackutils.block.entity.ModBlockEntities;
-import dev.csilman.modpackutils.util.GlobalBeaconTracker;
+import dev.csilman.modpackutils.util.altar.GlobalBeaconTracker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;

@@ -2,7 +2,7 @@ package dev.csilman.modpackutils.event;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.command.ResetAltarStageCommand;
-import dev.csilman.modpackutils.util.AltarEventManager;
+import dev.csilman.modpackutils.util.altar.AltarEventManager;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;

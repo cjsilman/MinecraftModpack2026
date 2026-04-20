@@ -9,7 +9,7 @@
   ],
   "placement": {
     "type": "modpack_utils:fixed",
-    "chunk_x": 0,
+    "chunk_x": 3,
     "chunk_z": -6,
     "dimensions": [
       "minecraft:overworld"

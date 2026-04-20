@@ -7,7 +7,7 @@ import dev.csilman.modpackutils.component.ModDataComponentTypes;
 import dev.csilman.modpackutils.item.ModCreativeModeTabs;
 import dev.csilman.modpackutils.item.ModItems;
 import dev.csilman.modpackutils.lootmodifiers.ModLootModifiers;
-import dev.csilman.modpackutils.util.AltarStructuresScanner;
+import dev.csilman.modpackutils.util.altar.AltarStructuresScanner;
 import dev.csilman.modpackutils.worldgen.chunkgenerator.ModChunkGenerators;
 import dev.csilman.modpackutils.worldgen.placement.ModStructurePlacements;
 import net.minecraft.server.level.ServerLevel;

@@ -1,4 +1,4 @@
-package dev.csilman.modpackutils.util;
+package dev.csilman.modpackutils.util.altar;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.block.custom.BeaconPedestalBlock;

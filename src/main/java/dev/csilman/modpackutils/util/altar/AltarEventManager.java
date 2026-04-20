@@ -1,7 +1,10 @@
-package dev.csilman.modpackutils.util;
+package dev.csilman.modpackutils.util.altar;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.data.AltarSavedData;
+import dev.csilman.modpackutils.util.altar.siege.SiegeWave;
+import dev.csilman.modpackutils.util.altar.siege.SiegeWaveDefinitions;
+import dev.csilman.modpackutils.util.altar.siege.SiegeWaveSpawner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -20,6 +23,7 @@ import java.util.List;
 public class AltarEventManager {
 
     private static final int TICKS_TO_SIEGE = 200;
+    private static final int SIEGE_ASSIST_TIME = 400;
 
     public static void tick(ServerLevel overworld) {
         AltarSavedData data = AltarSavedData.get(overworld);
@@ -36,26 +40,26 @@ public class AltarEventManager {
 
     }
 
-    private static void tickAwakening(ServerLevel overworld, AltarSavedData data) {
+    private static void tickAwakening(ServerLevel level, AltarSavedData data) {
         int currentTick = data.getTicksInPhase();
         BlockPos altarMidpoint = data.getAltarMidpoint();
 
         if (currentTick == 40) {
-            spawnRing(overworld, altarMidpoint, 5, ParticleTypes.REVERSE_PORTAL, 5.0);
+            spawnRing(level, altarMidpoint, 5, ParticleTypes.REVERSE_PORTAL, 5.0);
         }
 
         if (currentTick == 80) {
-            spawnRing(overworld, altarMidpoint, 10, ParticleTypes.DRAGON_BREATH,5.0);
-            spawnRing(overworld, altarMidpoint, 5, ParticleTypes.REVERSE_PORTAL,5.0);
-            spawnRingForAllServerPlayers(overworld, 3, ParticleTypes.END_ROD);
+            spawnRing(level, altarMidpoint, 10, ParticleTypes.DRAGON_BREATH,5.0);
+            spawnRing(level, altarMidpoint, 5, ParticleTypes.REVERSE_PORTAL,5.0);
+            spawnRingForAllServerPlayers(level, 3, ParticleTypes.END_ROD);
         }
 
         if (currentTick == 160) {
-            broadcastTitle(overworld,
+            broadcastTitle(level,
                     Component.translatable("info.modpack_utils.altar_event.awakening_start_title"),
                     Component.translatable("info.modpack_utils.altar_event.awakening_start_subtitle")
                     );
-            broadcastSound(overworld, SoundEvents.WARDEN_AGITATED, 0.75f);
+            broadcastSound(level, SoundEvents.WARDEN_AGITATED, 0.75f);
         }
 
 
@@ -67,8 +71,61 @@ public class AltarEventManager {
 
     }
 
-    private static void tickSiege(ServerLevel overworld, AltarSavedData data) {
+    private static void tickSiege(ServerLevel level, AltarSavedData data) {
         int currentTick = data.getTicksInPhase();
+        int currentWave = data.getSiegeWave();
+
+        if (!data.isWaveSpawned()) {
+            SiegeWave wave = SiegeWaveDefinitions.getWave(currentWave);
+            SiegeWaveSpawner.spawnWave(level, data.getAltarMidpoint(), wave);
+            data.setWaveSpawned(true);
+
+            ModpackUtilsMod.LOGGER.info(
+                    "[ModpackUtils] Spawning siege wave {}/{}",
+                    currentWave+1,
+                    SiegeWaveDefinitions.totalWaves()
+            );
+            return;
+        }
+
+        if (currentTick % 20 != 0) return; //Every 1 second
+
+
+
+        if (!SiegeWaveSpawner.isWaveCleared(level, data.getAltarMidpoint())) {
+            // See if player needs assistance...
+            if (currentTick > SIEGE_ASSIST_TIME) {
+                SiegeWaveSpawner.highlightAllMobs(level, data.getAltarMidpoint());
+            }
+
+            return;
+        }
+
+        int nextWave = currentWave + 1;
+
+        if (nextWave < SiegeWaveDefinitions.totalWaves()){
+            broadcastTitle(level,
+                    Component.literal("§a§lWave Cleared!"),
+                    Component.literal("§7Prepare yourselves..."));
+            broadcastSound(level, SoundEvents.WARDEN_ANGRY, 0.75f);
+
+            level.getServer().execute(() -> {
+                data.setSiegeWave(nextWave);
+                data.setWaveSpawned(false);
+                data.setPhase(AltarEventPhase.SIEGE);
+            });
+        } else {
+            // All waves cleared
+            broadcastTitle(level,
+                    Component.literal(""),
+                    Component.literal("It is free..."));
+            broadcastSound(level, SoundEvents.ENDER_DRAGON_GROWL, 0.75f);
+
+            data.setPhase(AltarEventPhase.BOSS);
+
+            ModpackUtilsMod.LOGGER.info("[ModpackUtils] All waves cleared. Advancing to BOSS phase.");
+        }
+
     }
 
     public static void broadcastTitle(ServerLevel overworld, Component title, Component subtitle) {
@@ -95,11 +152,7 @@ public class AltarEventManager {
     public static void broadcastSound(ServerLevel level, SoundEvent soundEvent, float pitch) {
         List<ServerPlayer> players = level.getServer().getPlayerList().getPlayers();
         for (ServerPlayer player : players) {
-            int playerX = player.getBlockX();
-            int playerY = player.getBlockY();
-            int playerZ = player.getBlockZ();
-            BlockPos playerPos = new BlockPos(playerX, playerY, playerZ);
-            player.level().playSound(null, playerPos, soundEvent, SoundSource.AMBIENT, 1.0f, pitch);
+            player.level().playSound(null, player.blockPosition(), soundEvent, SoundSource.AMBIENT, 1.0f, pitch);
         }
     }
 
@@ -117,11 +170,7 @@ public class AltarEventManager {
     public static void spawnRingForAllServerPlayers(ServerLevel level, double radius, SimpleParticleType particle) {
         List<ServerPlayer> players = level.getServer().getPlayerList().getPlayers();
         for (ServerPlayer player : players) {
-            int playerX = player.getBlockX();
-            int playerY = player.getBlockY();
-            int playerZ = player.getBlockZ();
-            BlockPos playerPos = new BlockPos(playerX, playerY, playerZ);
-            spawnRing(level, playerPos, radius, particle, 0.5);
+            spawnRing(level, player.blockPosition(), radius, particle, 0.5);
         }
     }
 
