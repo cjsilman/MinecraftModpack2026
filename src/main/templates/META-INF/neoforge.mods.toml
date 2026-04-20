@@ -81,6 +81,13 @@ config = "modpackutils.mixins.json"
     # Side this dependency is applied on - BOTH, CLIENT, or SERVER
     side="BOTH"
 
+[[dependencies.modpack_utils]]
+    modId = "fdbosses"
+    type = "required"
+    versionRange = "*"
+    ordering = "AFTER"
+    side = "BOTH"
+
 # Here's another dependency
 [[dependencies.${mod_id}]]
     modId="minecraft"

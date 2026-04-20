@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#modpack_utils:has_structure/geburah_arena",
+  "start_pool": "fdbosses:geburah_arena",
+  "size": 20,
+  "max_distance_from_center": 128,
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "start_height": {
+    "absolute": 140
+  },
+  "use_expansion_hack": false,
+  "spawn_overrides": {}
+}
