@@ -136,6 +136,32 @@ public class ModBlocks {
             )
     );
 
+    public static final DeferredBlock<Block> CHESED_BEACON_PEDESTAL_BLOCK = registerBlock("chesed_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.CHESED_WORLD,
+                            -5.5,
+                            150,
+                            -102.5,
+                            5
+                    )
+            )
+    );
+
+    public static final DeferredBlock<Block> MALKUTH_BEACON_PEDESTAL_BLOCK = registerBlock("malkuth_beacon_pedestal_block",
+            () -> new BeaconPedestalBlock(
+                    BlockBehaviour.Properties.of().strength(20.0f),
+                    new MemoryDestination(
+                            ModDimensions.TEST_WORLD,
+                            -5.5,
+                            150,
+                            -102.5,
+                            5
+                    )
+            )
+    );
+
     public static final DeferredBlock<Block> HOME_BEACON_PEDESTAL_BLOCK = registerBlock("home_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
                     BlockBehaviour.Properties.of().strength(20.0f),

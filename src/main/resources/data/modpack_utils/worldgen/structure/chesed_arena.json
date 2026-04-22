@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#modpack_utils:has_structure/chesed_arena",
+  "liquid_settings": "ignore_waterlogging",
+  "start_pool": "fdbosses:chesed_arena",
+  "size": 10,
+  "max_distance_from_center": 115,
+  "step": "top_layer_modification",
+  "terrain_adaptation": "encapsulate",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "absolute": 83
+  },
+  "use_expansion_hack": false,
+  "spawn_overrides": {
+    "ambient": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "axolotls": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "misc": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "underground_water_creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "water_ambient": {
+      "bounding_box": "piece",
+      "spawns": []
+    },
+    "water_creature": {
+      "bounding_box": "piece",
+      "spawns": []
+    }
+  }
+}

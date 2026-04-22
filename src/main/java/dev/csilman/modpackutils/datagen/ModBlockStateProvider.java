@@ -36,6 +36,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.MONSTROUS_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/monstrous_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
         horizontalBlock(ModBlocks.STORM_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/storm_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
         horizontalBlock(ModBlocks.VOID_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/void_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
+        horizontalBlock(ModBlocks.CHESED_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/chesed_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
+        horizontalBlock(ModBlocks.MALKUTH_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/malkuth_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
         horizontalBlock(ModBlocks.HOME_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/home_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
     }
 

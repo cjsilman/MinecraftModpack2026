@@ -31,4 +31,8 @@ public class ModDimensions {
             Registries.DIMENSION,
             ResourceLocation.fromNamespaceAndPath(ModpackUtilsMod.MOD_ID, "test_world")
     );
+    public static final ResourceKey<Level> CHESED_WORLD = ResourceKey.create(
+            Registries.DIMENSION,
+            ResourceLocation.fromNamespaceAndPath(ModpackUtilsMod.MOD_ID, "chesed_world")
+    );
 }

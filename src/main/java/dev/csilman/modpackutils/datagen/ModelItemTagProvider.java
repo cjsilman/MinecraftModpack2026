@@ -28,7 +28,9 @@ public class ModelItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.MECH_HEART.get())
                 .add(ModItems.MONSTROUS_HEART.get())
                 .add(ModItems.STORM_HEART.get())
-                .add(ModItems.VOID_HEART.get());
+                .add(ModItems.VOID_HEART.get())
+                .add(ModItems.CHESED_HEART.get())
+                .add(ModItems.MALKUTH_HEART.get());
 
         this.tag(ModTags.Items.NO_BEACON_PEDESTAL_INTERACT)
                 .add(ModBlocks.ABYSS_BEACON_BLOCK.get().asItem())

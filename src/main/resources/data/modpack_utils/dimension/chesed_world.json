@@ -1,0 +1,31 @@
+{
+  "type": "modpack_utils:chesed_world_type",
+  "generator": {
+    "type": "modpack_utils:boss_arena_flat",
+    "settings": {
+      "biome": "minecraft:warm_ocean",
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 1
+        },
+        {
+          "block": "minecraft:stone",
+          "height": 1
+        },
+        {
+          "block": "minecraft:stone",
+          "height": 1
+        }
+      ],
+      "structure_overrides": [
+        "fdbosses:chesed_arena"
+      ]
+    },
+    "chunk_radius": 15,
+    "allowed_structure_sets": [
+      "modpack_utils:chesed_world_boss_set",
+      "modpack_utils:chesed_world_spawn_set"
+    ]
+  }
+}

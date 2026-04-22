@@ -53,6 +53,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.MONSTROUS_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.STORM_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.VOID_BEACON_PEDESTAL_BLOCK);
+                        output.accept(ModBlocks.CHESED_BEACON_PEDESTAL_BLOCK);
+                        output.accept(ModBlocks.MALKUTH_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.HOME_BEACON_PEDESTAL_BLOCK);
                     })).build());
 
