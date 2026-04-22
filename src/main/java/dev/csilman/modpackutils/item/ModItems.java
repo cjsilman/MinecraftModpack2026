@@ -42,6 +42,12 @@ public class ModItems {
     public static final DeferredItem<Item> VOID_HEART = ITEMS.register("void_heart",
             () -> new PrimordialHeartItem(new Item.Properties().fireResistant()));
 
+    public static final DeferredItem<Item> MALKUTH_HEART = ITEMS.register("malkuth_heart",
+            () -> new PrimordialHeartItem(new Item.Properties().fireResistant()));
+
+    public static final DeferredItem<Item> CHESED_HEART = ITEMS.register("chesed_heart",
+            () -> new PrimordialHeartItem(new Item.Properties().fireResistant()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
