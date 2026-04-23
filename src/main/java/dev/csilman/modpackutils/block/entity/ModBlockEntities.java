@@ -24,7 +24,9 @@ public class ModBlockEntities {
                     ModBlocks.MECH_BEACON_BLOCK.get(),
                     ModBlocks.MONSTROUS_BEACON_BLOCK.get(),
                     ModBlocks.STORM_BEACON_BLOCK.get(),
-                    ModBlocks.VOID_BEACON_BLOCK.get()
+                    ModBlocks.VOID_BEACON_BLOCK.get(),
+                    ModBlocks.CHESED_BEACON_BLOCK.get(),
+                    ModBlocks.MALKUTH_BEACON_BLOCK.get()
             ).build(null));
 
     public static void register(IEventBus eventBus) {

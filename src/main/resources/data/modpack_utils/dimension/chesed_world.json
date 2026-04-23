@@ -10,12 +10,16 @@
           "height": 1
         },
         {
-          "block": "minecraft:stone",
+          "block": "minecraft:sculk",
           "height": 1
         },
         {
-          "block": "minecraft:stone",
+          "block": "minecraft:sculk",
           "height": 1
+        },
+        {
+          "block": "minecraft:sculk",
+          "height": 13
         }
       ],
       "structure_overrides": [

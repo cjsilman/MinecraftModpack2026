@@ -25,6 +25,8 @@
   "block.modpack_utils.monstrous_beacon_block": "Monstrous Beacon",
   "block.modpack_utils.storm_beacon_block": "Storm Beacon",
   "block.modpack_utils.void_beacon_block": "Void Beacon",
+  "block.modpack_utils.chesed_beacon_block": "Chesed Beacon",
+  "block.modpack_utils.malkuth_beacon_block": "Malkuth Beacon",
 
   "item.modpack_utils.god_thread": "God Thread",
   "item.modpack_utils.fragmented_memory": "Fragmented Memory",

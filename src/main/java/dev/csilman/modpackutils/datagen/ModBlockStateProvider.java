@@ -27,10 +27,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.MONSTROUS_BEACON_BLOCK);
         blockWithItem(ModBlocks.STORM_BEACON_BLOCK);
         blockWithItem(ModBlocks.VOID_BEACON_BLOCK);
+        blockWithItem(ModBlocks.CHESED_BEACON_BLOCK);
+        blockWithItem(ModBlocks.MALKUTH_BEACON_BLOCK);
 
         horizontalBlock(ModBlocks.ABYSS_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/abyss_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
-        horizontalBlock(ModBlocks.CURSED_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/cursed_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
-        horizontalBlock(ModBlocks.DESERT_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/desert_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
+        horizontalBlock(ModBlocks.CURSED_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/cursed_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
+        horizontalBlock(ModBlocks.DESERT_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/desert_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
         horizontalBlock(ModBlocks.IGNIS_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/ignis_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
         horizontalBlock(ModBlocks.MECH_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/mech_beacon_pedestal_block"), mcLoc("block/lodestone_top"));
         horizontalBlock(ModBlocks.MONSTROUS_BEACON_PEDESTAL_BLOCK.get(), mcLoc("block/lodestone_side"), modLoc("block/monstrous_beacon_pedestal_block"), mcLoc("block/lodestone_top"));

@@ -10,7 +10,7 @@
   "placement": {
     "type": "modpack_utils:fixed",
     "chunk_x": 0,
-    "chunk_z": -6,
+    "chunk_z": -13,
     "dimensions": [
       "modpack_utils:test_world"
     ]

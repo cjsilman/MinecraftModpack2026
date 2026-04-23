@@ -44,10 +44,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.MONSTROUS_BEACON_BLOCK);
                         output.accept(ModBlocks.STORM_BEACON_BLOCK);
                         output.accept(ModBlocks.VOID_BEACON_BLOCK);
+                        output.accept(ModBlocks.CHESED_BEACON_BLOCK);
+                        output.accept(ModBlocks.MALKUTH_BEACON_BLOCK);
 
                         output.accept(ModBlocks.ABYSS_BEACON_PEDESTAL_BLOCK);
-                        output.accept(ModBlocks.CURSED_PEDESTAL_BLOCK);
-                        output.accept(ModBlocks.DESERT_PEDESTAL_BLOCK);
+                        output.accept(ModBlocks.CURSED_BEACON_PEDESTAL_BLOCK);
+                        output.accept(ModBlocks.DESERT_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.IGNIS_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.MECH_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.MONSTROUS_BEACON_PEDESTAL_BLOCK);

@@ -1,17 +1,32 @@
 {
   "type": "modpack_utils:test_world_type",
   "generator": {
-    "type": "modpack_utils:boss_arena",
+    "type": "modpack_utils:boss_arena_flat",
     "chunk_radius": 15,
-    "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "minecraft:end_highlands"
+    "settings": {
+      "biome": "minecraft:end_highlands",
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 1
+        },
+        {
+          "block": "minecraft:light_blue_stained_glass",
+          "height": 1
+        }
+      ]
     },
-    "settings": "minecraft:end",
+    "structure_overrides": [
+      "modpack_utils:landing_point",
+      "modpack_utils:geburah_arena"
+    ],
     "allowed_structure_sets": [
       "modpack_utils:test_world_boss_set",
-      "modpack_utils:test_world_spawn_set",
-      "modpack_utils:test_world_extra1_set"
+      "modpack_utils:test_world_spawn_set"
     ]
   }
 }

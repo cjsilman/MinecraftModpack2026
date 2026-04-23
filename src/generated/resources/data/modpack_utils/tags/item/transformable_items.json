@@ -7,6 +7,8 @@
     "modpack_utils:mech_heart",
     "modpack_utils:monstrous_heart",
     "modpack_utils:storm_heart",
-    "modpack_utils:void_heart"
+    "modpack_utils:void_heart",
+    "modpack_utils:chesed_heart",
+    "modpack_utils:malkuth_heart"
   ]
 }

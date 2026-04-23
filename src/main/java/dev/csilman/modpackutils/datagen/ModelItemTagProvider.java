@@ -40,6 +40,8 @@ public class ModelItemTagProvider extends ItemTagsProvider {
                 .add(ModBlocks.MECH_BEACON_BLOCK.get().asItem())
                 .add(ModBlocks.MONSTROUS_BEACON_BLOCK.get().asItem())
                 .add(ModBlocks.STORM_BEACON_BLOCK.get().asItem())
-                .add(ModBlocks.VOID_BEACON_BLOCK.get().asItem());
+                .add(ModBlocks.VOID_BEACON_BLOCK.get().asItem())
+                .add(ModBlocks.CHESED_BEACON_BLOCK.get().asItem())
+                .add(ModBlocks.MALKUTH_BEACON_BLOCK.get().asItem());
     }
 }

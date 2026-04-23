@@ -33,8 +33,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.MALKUTH_HEART.get());
         basicItem(ModItems.CHESED_HEART.get());
         horizontalBlockItem(ModBlocks.ABYSS_BEACON_PEDESTAL_BLOCK);
-        horizontalBlockItem(ModBlocks.CURSED_PEDESTAL_BLOCK);
-        horizontalBlockItem(ModBlocks.DESERT_PEDESTAL_BLOCK);
+        horizontalBlockItem(ModBlocks.CURSED_BEACON_PEDESTAL_BLOCK);
+        horizontalBlockItem(ModBlocks.DESERT_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.IGNIS_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.MECH_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.MONSTROUS_BEACON_PEDESTAL_BLOCK);
