@@ -54,7 +54,7 @@ public class GlobalBeaconTracker {
         AltarSavedData data = AltarSavedData.get(overworld);
 
         ModpackUtilsMod.LOGGER.info(
-                "[ModpackUtils] Current state is: {}. Checking if all beacons active.", data.getPhase()
+                "[ModpackUtils] Current state is: {}. Checking if all beacons active.", data.getAltarPhase()
         );
 
         if (!data.isDormant()) return;
@@ -64,7 +64,7 @@ public class GlobalBeaconTracker {
                     "[ModpackUtils] All beacons are active! Shifting to AWAKENING."
             );
 
-            data.setPhase(AltarEventPhase.AWAKENING);
+            data.setAltarPhase(AltarEventPhase.AWAKENING);
         }
 
     }

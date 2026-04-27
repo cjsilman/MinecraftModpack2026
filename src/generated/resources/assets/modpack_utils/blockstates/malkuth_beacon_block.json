@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/malkuth_beacon_block"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "modpack_utils:block/chesed_beacon_block"
+    }
+  }
+}

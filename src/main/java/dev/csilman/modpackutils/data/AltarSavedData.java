@@ -2,6 +2,7 @@ package dev.csilman.modpackutils.data;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.util.altar.AltarEventPhase;
+import dev.csilman.modpackutils.util.altar.siege.SiegePhase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -16,15 +17,19 @@ public class AltarSavedData extends SavedData {
 
     private static final String DATA_KEY = ModpackUtilsMod.MOD_ID + "_altar_state";
 
-    private AltarEventPhase phase = AltarEventPhase.DORMANT;
+    private AltarEventPhase altarPhase = AltarEventPhase.DORMANT;
     private int siegeWave = 0;
     private int ticksInPhase = 0;
+    private int ticksInWave = 0;
     private boolean bossSpawned = false;
     private Set<BlockPos> registeredPedestals = new HashSet<>();
-    // Expecting to only need to scan ONCE on server start, as all pedestals will exist at the start of the game.
-    private boolean pedestalsScanned = false;
+    private boolean pedestalsScanned = false; // Expecting to only need to scan ONCE on server start, as all pedestals will exist at the start of the game.
     private BlockPos altarMidpoint = new BlockPos(0, 0, 0);
     private boolean waveSpawned = false;
+    private int siegeParticleStage = 0;
+    private int delayWaveStartCounter = 0;
+    private SiegePhase siegePhase = SiegePhase.NONE;
+
 
     public static AltarSavedData get(ServerLevel overworld) {
         return overworld.getDataStorage().computeIfAbsent(
@@ -38,12 +43,20 @@ public class AltarSavedData extends SavedData {
 
     public static AltarSavedData load(CompoundTag compoundTag, HolderLookup.Provider provider) {
         AltarSavedData data = new AltarSavedData();
-        data.phase = AltarEventPhase.valueOf(compoundTag.getString("phase"));
-        data.siegeWave = compoundTag.getInt("siegeWave");
+        // Larger Scope Data
+        data.altarPhase = AltarEventPhase.valueOf(compoundTag.getString("phase"));
         data.ticksInPhase = compoundTag.getInt("ticksInPhase");
-        data.bossSpawned = compoundTag.getBoolean("bossSpawned");
         data.pedestalsScanned = compoundTag.getBoolean("pedestalsScanned");
+
+        // Siege Specific
+        data.ticksInWave = compoundTag.getInt("ticksInWave");
         data.waveSpawned = compoundTag.getBoolean("waveSpawned");
+        data.siegeParticleStage = compoundTag.getInt("siegeParticleStage");
+        data.delayWaveStartCounter = compoundTag.getInt("delayWaveStartCounter");
+        data.bossSpawned = compoundTag.getBoolean("bossSpawned");
+        data.siegeWave = compoundTag.getInt("siegeWave");
+        data.siegePhase = SiegePhase.valueOf(compoundTag.getString("siegePhase"));
+
 
         if (compoundTag.contains("pedestals")) {
             int[] raw = compoundTag.getIntArray("pedestals");
@@ -60,12 +73,17 @@ public class AltarSavedData extends SavedData {
 
     @Override
     public CompoundTag save(CompoundTag compoundTag, HolderLookup.Provider provider) {
-        compoundTag.putString("phase", phase.name());
-        compoundTag.putInt("siegeWave", siegeWave);
+        compoundTag.putString("phase", altarPhase.name());
         compoundTag.putInt("ticksInPhase", ticksInPhase);
-        compoundTag.putBoolean("bossSpawned", bossSpawned);
         compoundTag.putBoolean("pedestalsScanned", pedestalsScanned);
+
+        compoundTag.putInt("ticksInWave", ticksInWave);
         compoundTag.putBoolean("waveSpawned", waveSpawned);
+        compoundTag.putInt("siegeParticleStage", siegeParticleStage);
+        compoundTag.putInt("delayWaveStartCounter", delayWaveStartCounter);
+        compoundTag.putBoolean("bossSpawned", bossSpawned);
+        compoundTag.putInt("siegeWave", siegeWave);
+        compoundTag.putString("siegePhase", siegePhase.name());
 
         // # of pedestals registered at first server run (See GlobalBeaconTracker)
         int[] raw = new int[registeredPedestals.size()*3];
@@ -87,12 +105,12 @@ public class AltarSavedData extends SavedData {
         return compoundTag;
     }
 
-    public AltarEventPhase getPhase() {
-        return phase;
+    public AltarEventPhase getAltarPhase() {
+        return altarPhase;
     }
 
-    public void setPhase(AltarEventPhase phase) {
-        this.phase = phase;
+    public void setAltarPhase(AltarEventPhase altarPhase) {
+        this.altarPhase = altarPhase;
         setDirty();
     }
 
@@ -111,6 +129,15 @@ public class AltarSavedData extends SavedData {
 
     public void setTicksInPhase(int ticksInPhase) {
         this.ticksInPhase = ticksInPhase;
+        setDirty();
+    }
+
+    public int getTicksInWave() {
+        return ticksInWave;
+    }
+
+    public void setTicksInWave(int ticksInWave) {
+        this.ticksInWave = ticksInWave;
         setDirty();
     }
 
@@ -146,8 +173,13 @@ public class AltarSavedData extends SavedData {
         return Collections.unmodifiableSet(registeredPedestals);
     }
 
-    public void incrementTicks() {
+    public void incrementPhaseTicks() {
         this.ticksInPhase++;
+        setDirty();
+    }
+
+    public void incrementWaveTicks() {
+        this.ticksInWave++;
         setDirty();
     }
 
@@ -169,9 +201,36 @@ public class AltarSavedData extends SavedData {
         setDirty();
     }
 
-    public boolean isDormant()  { return phase == AltarEventPhase.DORMANT; }
-    public boolean isAwakening(){ return phase == AltarEventPhase.AWAKENING; }
-    public boolean isSiege()    { return phase == AltarEventPhase.SIEGE; }
-    public boolean isBoss() { return phase == AltarEventPhase.BOSS; }
-    public boolean isDefeated() { return phase == AltarEventPhase.DEFEATED; }
+    public int getSiegeParticleStage() {
+        return siegeParticleStage;
+    }
+
+    public void setSiegeParticleStage(int siegeParticleStage) {
+        this.siegeParticleStage = siegeParticleStage;
+        setDirty();
+    }
+
+    public int getDelayWaveStartCounter() {
+        return delayWaveStartCounter;
+    }
+
+    public void setDelayWaveStartCounter(int delayWaveStartCounter) {
+        this.delayWaveStartCounter = delayWaveStartCounter;
+        setDirty();
+    }
+
+    public SiegePhase getSiegePhase() {
+        return siegePhase;
+    }
+
+    public void setSiegePhase(SiegePhase siegePhase) {
+        this.siegePhase = siegePhase;
+        setDirty();
+    }
+
+    public boolean isDormant()  { return altarPhase == AltarEventPhase.DORMANT; }
+    public boolean isAwakening(){ return altarPhase == AltarEventPhase.AWAKENING; }
+    public boolean isSiege()    { return altarPhase == AltarEventPhase.SIEGE; }
+    public boolean isBoss() { return altarPhase == AltarEventPhase.BOSS; }
+    public boolean isDefeated() { return altarPhase == AltarEventPhase.DEFEATED; }
 }

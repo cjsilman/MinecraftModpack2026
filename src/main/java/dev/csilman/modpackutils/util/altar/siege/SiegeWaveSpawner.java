@@ -78,6 +78,7 @@ public class SiegeWaveSpawner {
 
         mob.moveTo(x, y, z, RANDOM.nextFloat() * 360f, 0f);
         mob.addTag(SIEGE_MOB_TAG);
+        mob.setPersistenceRequired();
 
         if (entry.customName() != null) {
             mob.setCustomName(Component.literal(entry.customName()));

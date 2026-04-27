@@ -4,10 +4,12 @@ import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.block.entity.ModBlockEntities;
 import dev.csilman.modpackutils.block.entity.renderer.BossBeaconEntityRenderer;
 import dev.csilman.modpackutils.component.ModDataComponentTypes;
+import dev.csilman.modpackutils.data.AltarSavedData;
 import dev.csilman.modpackutils.item.ModCreativeModeTabs;
 import dev.csilman.modpackutils.item.ModItems;
 import dev.csilman.modpackutils.lootmodifiers.ModLootModifiers;
 import dev.csilman.modpackutils.util.altar.AltarStructuresScanner;
+import dev.csilman.modpackutils.util.altar.AltarWeatherManager;
 import dev.csilman.modpackutils.worldgen.chunkgenerator.ModChunkGenerators;
 import dev.csilman.modpackutils.worldgen.placement.ModStructurePlacements;
 import net.minecraft.server.level.ServerLevel;
@@ -93,6 +95,11 @@ public class ModpackUtilsMod {
         ServerLevel overworld = event.getServer().getLevel(Level.OVERWORLD);
         if (overworld != null) {
             AltarStructuresScanner.scanIfNeeded(overworld);
+
+            AltarSavedData data = AltarSavedData.get(overworld);
+            if (data.isSiege()) {
+                AltarWeatherManager.startSiegeWeather(overworld);
+            }
         }
     }
 

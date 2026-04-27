@@ -5,6 +5,8 @@ import com.mojang.brigadier.context.CommandContext;
 import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.data.AltarSavedData;
 import dev.csilman.modpackutils.util.altar.AltarEventPhase;
+import dev.csilman.modpackutils.util.altar.AltarWeatherManager;
+import dev.csilman.modpackutils.util.altar.siege.SiegePhase;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -20,13 +22,15 @@ public class ResetAltarStageCommand {
     private int execute(CommandContext<CommandSourceStack> context) {
         ServerLevel overworld = context.getSource().getServer().getLevel(ServerLevel.OVERWORLD);
         AltarSavedData data = AltarSavedData.get(overworld);
+        AltarWeatherManager.resetWeather(overworld);
 
-        data.setPhase(AltarEventPhase.DORMANT);
+        data.setAltarPhase(AltarEventPhase.DORMANT);
         data.setSiegeWave(0);
         data.setTicksInPhase(0);
         data.setSiegeWave(0);
         data.setBossSpawned(false);
         data.setWaveSpawned(false);
+        data.setSiegePhase(SiegePhase.NONE);
 
         Player player = context.getSource().getPlayer();
         player.displayClientMessage(
