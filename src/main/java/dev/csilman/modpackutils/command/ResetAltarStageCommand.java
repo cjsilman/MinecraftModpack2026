@@ -31,6 +31,7 @@ public class ResetAltarStageCommand {
         data.setBossSpawned(false);
         data.setWaveSpawned(false);
         data.setSiegePhase(SiegePhase.NONE);
+        data.setMobsHighlighted(false);
 
         Player player = context.getSource().getPlayer();
         player.displayClientMessage(

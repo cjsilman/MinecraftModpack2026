@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class AltarStructuresScanner {
 
-    private static final int SCAN_RADIUS = 100;
+    private static final int SCAN_RADIUS = 150;
     private static final int SCAN_MIN_Y = 40;
     private static final int SCAN_MAX_Y = 200;
 

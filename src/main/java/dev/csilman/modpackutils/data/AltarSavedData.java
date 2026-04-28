@@ -18,17 +18,19 @@ public class AltarSavedData extends SavedData {
     private static final String DATA_KEY = ModpackUtilsMod.MOD_ID + "_altar_state";
 
     private AltarEventPhase altarPhase = AltarEventPhase.DORMANT;
-    private int siegeWave = 0;
     private int ticksInPhase = 0;
-    private int ticksInWave = 0;
-    private boolean bossSpawned = false;
-    private Set<BlockPos> registeredPedestals = new HashSet<>();
     private boolean pedestalsScanned = false; // Expecting to only need to scan ONCE on server start, as all pedestals will exist at the start of the game.
+    private Set<BlockPos> registeredPedestals = new HashSet<>();
+
+    private int ticksInWave = 0;
     private BlockPos altarMidpoint = new BlockPos(0, 0, 0);
     private boolean waveSpawned = false;
     private int siegeParticleStage = 0;
     private int delayWaveStartCounter = 0;
+    private boolean bossSpawned = false;
+    private int siegeWave = 0;
     private SiegePhase siegePhase = SiegePhase.NONE;
+    boolean mobsHighlighted = false;
 
 
     public static AltarSavedData get(ServerLevel overworld) {
@@ -56,6 +58,7 @@ public class AltarSavedData extends SavedData {
         data.bossSpawned = compoundTag.getBoolean("bossSpawned");
         data.siegeWave = compoundTag.getInt("siegeWave");
         data.siegePhase = SiegePhase.valueOf(compoundTag.getString("siegePhase"));
+        data.mobsHighlighted = compoundTag.getBoolean("mobsHighlighted");
 
 
         if (compoundTag.contains("pedestals")) {
@@ -84,6 +87,7 @@ public class AltarSavedData extends SavedData {
         compoundTag.putBoolean("bossSpawned", bossSpawned);
         compoundTag.putInt("siegeWave", siegeWave);
         compoundTag.putString("siegePhase", siegePhase.name());
+        compoundTag.putBoolean("mobsHighlighted", mobsHighlighted);
 
         // # of pedestals registered at first server run (See GlobalBeaconTracker)
         int[] raw = new int[registeredPedestals.size()*3];
@@ -225,6 +229,15 @@ public class AltarSavedData extends SavedData {
 
     public void setSiegePhase(SiegePhase siegePhase) {
         this.siegePhase = siegePhase;
+        setDirty();
+    }
+
+    public boolean isMobsHighlighted() {
+        return mobsHighlighted;
+    }
+
+    public void setMobsHighlighted(boolean mobsHighlighted) {
+        this.mobsHighlighted = mobsHighlighted;
         setDirty();
     }
 

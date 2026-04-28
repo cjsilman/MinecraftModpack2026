@@ -94,7 +94,6 @@ public class AltarEventManager {
             data.setTicksInWave(0);
         }
 
-
         //------------------
         // Every 1 Second
         //------------------
@@ -123,8 +122,10 @@ public class AltarEventManager {
                     data.setSiegePhase(SiegePhase.ENDING_WAVE);
                 } else {
                     // If wave is not cleared, check if player(s) need assistance...
-                    if (currentWaveTick > SIEGE_ASSIST_TIME) {
-                        SiegeWaveSpawner.highlightAllMobs(level, data.getAltarMidpoint());
+                    if (currentWaveTick > SIEGE_ASSIST_TIME && !data.isMobsHighlighted()) {
+                        ModpackUtilsMod.LOGGER.info("[ModpackUtils] Highlighting all mobs");
+                        SiegeWaveSpawner.highlightAllMobs(level, data.getAltarMidpoint( ));
+                        data.setMobsHighlighted(true);
                     }
                 }
             }
@@ -137,19 +138,18 @@ public class AltarEventManager {
                     ModpackUtilsMod.LOGGER.info("[ModpackUtils] Siege Phase ENDING_WAVE -> STARTING_WAVE");
                     data.setSiegePhase(SiegePhase.STARTING_WAVE);
 
-                    broadcastTitle(level,
-                            Component.literal("§a§lWave Cleared!"),
-                            Component.literal("§7Prepare yourselves..."));
                     broadcastSound(level, SoundEvents.WARDEN_ANGRY, 0.75f);
 
                     level.getServer().execute(() -> {
                         data.setSiegeWave(nextWave);
                         data.setWaveSpawned(false);
+                        data.setMobsHighlighted(false);
                         data.setAltarPhase(AltarEventPhase.SIEGE);
                     });
                 } else {
                     // All waves cleared
                     ModpackUtilsMod.LOGGER.info("[ModpackUtils] Siege Phase ENDING_WAVE -> COMPLETED_SIEGE");
+                    data.setMobsHighlighted(false);
                     data.setSiegePhase(SiegePhase.COMPLETED_SIEGE);
                 }
             }
@@ -297,6 +297,11 @@ public class AltarEventManager {
 
         ModpackUtilsMod.LOGGER.info("[ModpackUtils] Summon lightning x: {}, y: {}, z: {}", pos_x, pos.getY(), pos_z);
 
+    }
+
+    public static int getNumberOfPlayersOnServer(ServerLevel level) {
+        List<ServerPlayer> players = level.getServer().getPlayerList().getPlayers();
+        return players.size();
     }
 
 }

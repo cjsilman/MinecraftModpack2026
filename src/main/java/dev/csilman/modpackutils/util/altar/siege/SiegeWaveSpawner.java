@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.Random;
 
 public class SiegeWaveSpawner {
-    private static final double SPAWN_RADIUS_MIN = 8.0;
-    private static final double SPAWN_RADIUS_MAX = 15.0;
+    private static final double SPAWN_RADIUS_MIN = 13.0;
+    private static final double SPAWN_RADIUS_MAX = 30.5;
 
     public static final String SIEGE_MOB_TAG = "altar_siege_mob";
 
@@ -26,7 +26,8 @@ public class SiegeWaveSpawner {
 
     private static final Random RANDOM = new Random();
 
-    private int playerScaleFactor = 1; //default to 1
+    private static int playerScaleFactor = 1; //default to 1
+    private static int adjustedPlayerScaleFactor = 1;
 
 
     public static void spawnWave(ServerLevel level, BlockPos pos, SiegeWave wave) {
@@ -36,8 +37,12 @@ public class SiegeWaveSpawner {
                 Component.literal(wave.subtitle()
                 ));
 
+        playerScaleFactor = AltarEventManager.getNumberOfPlayersOnServer(level);
+        adjustedPlayerScaleFactor = (int) Math.ceil((playerScaleFactor/3.0));
+
         for (SiegeWave.WaveEntry entry : wave.entries()) {
-            for(int i = 0; i < entry.count(); i++) {
+            int mobsToSummon = entry.count() * adjustedPlayerScaleFactor;
+            for(int i = 0; i < mobsToSummon; i++) {
                 spawnSiegeMob(level, pos, entry);
             }
         }
@@ -48,10 +53,10 @@ public class SiegeWaveSpawner {
         for (int y = startY + 5; y > startY-10; y--) {
             check.set((int) x, y, (int) z);
             if (level.getBlockState(check).isValidSpawn(level, check, entity) && level.getBlockState(check.above()).isAir()) {
-                return y+1;
+                return y+10;
             }
         }
-        return startY;
+        return startY+10;
     }
 
     private static void spawnSiegeMob(ServerLevel level, BlockPos pos, SiegeWave.WaveEntry entry) {
@@ -104,8 +109,16 @@ public class SiegeWaveSpawner {
                     .setBaseValue(mob.getAttributeValue(Attributes.MOVEMENT_SPEED) * 1.3);
         }
 
+        if (mob.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
+            mob.getAttribute(Attributes.ATTACK_DAMAGE)
+                    .setBaseValue(mob.getAttributeValue(Attributes.ATTACK_DAMAGE) * 2.5);
+        }
+
         mob.addEffect(new MobEffectInstance(
                 MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 1, false, false));
+
+        mob.addEffect(new MobEffectInstance(
+                MobEffects.SLOW_FALLING, 40, 1, false, false));
     }
 
     public static boolean isWaveCleared(ServerLevel level, BlockPos pos) {

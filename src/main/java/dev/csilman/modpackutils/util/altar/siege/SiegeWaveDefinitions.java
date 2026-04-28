@@ -6,9 +6,19 @@ public class SiegeWaveDefinitions {
     public static final List<SiegeWave> WAVES = List.of(
             new SiegeWave(
                     "",
-                    "Test1",
+                    "§4Overconfidence",
                     List.of(
-                           new SiegeWave.WaveEntry("cataclysm:elite_draugr", 6, "TestName")
+                           new SiegeWave.WaveEntry("cataclysm:clawdian", 12, null)
+
+                    )
+            ),
+            new SiegeWave(
+                    "",
+                    "§6Opulence",
+                    List.of(
+                           new SiegeWave.WaveEntry("royalvariations:royal_skeleton", 12, null),
+                           new SiegeWave.WaveEntry("minecraft:skeleton", 24, null),
+                           new SiegeWave.WaveEntry("royalvariations:royal_zombie", 12, null)
                     )
             ),
             new SiegeWave(
