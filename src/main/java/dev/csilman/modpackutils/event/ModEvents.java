@@ -2,6 +2,7 @@ package dev.csilman.modpackutils.event;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.command.ResetAltarStageCommand;
+import dev.csilman.modpackutils.command.TeleportToAltarCommand;
 import dev.csilman.modpackutils.util.altar.AltarEventManager;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
@@ -25,6 +26,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onCommandRegister(RegisterCommandsEvent event) {
         new ResetAltarStageCommand(event.getDispatcher());
+        new TeleportToAltarCommand(event.getDispatcher());
     }
 
 }
