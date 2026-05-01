@@ -1,5 +1,5 @@
 {
-  "type": "modpack_utils:test_world_type",
+  "type": "modpack_utils:judgement_world_type",
   "generator": {
     "type": "modpack_utils:boss_arena_flat",
     "chunk_radius": 15,
@@ -25,8 +25,8 @@
       "modpack_utils:geburah_arena"
     ],
     "allowed_structure_sets": [
-      "modpack_utils:test_world_boss_set",
-      "modpack_utils:test_world_spawn_set"
+      "modpack_utils:judgement_world_boss_set",
+      "modpack_utils:judgement_world_spawn_set"
     ]
   }
 }
