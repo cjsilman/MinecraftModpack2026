@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.component.MemoryDestination;
+import dev.csilman.modpackutils.data.AltarSavedData;
 import dev.csilman.modpackutils.item.ModItems;
 import dev.csilman.modpackutils.util.ModTags;
 import net.minecraft.core.BlockPos;
@@ -71,15 +72,28 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
 
         context.getLevel().playSound(null, context.getPlayer().blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1.0f, 1.0f);
 
-        ((ServerPlayer) player).teleportTo(
-                targetLevel,
-                destination.x(), destination.y(), destination.z(),
-                Set.of(),
-                player.getYRot(),
-                player.getXRot()
-        );
+        if (destination.dimension() == Level.OVERWORLD) {
+            AltarSavedData data = AltarSavedData.get(targetLevel);
+            BlockPos altarMidpoint = data.getAltarMidpoint();
 
-        player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200));
+            ((ServerPlayer) player).teleportTo(
+                    targetLevel,
+                    altarMidpoint.getX(), altarMidpoint.getY()+1, altarMidpoint.getZ(),
+                    Set.of(),
+                    player.getYRot(),
+                    player.getXRot()
+            );
+        } else {
+            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200));
+
+            ((ServerPlayer) player).teleportTo(
+                    targetLevel,
+                    destination.x(), destination.y(), destination.z(),
+                    Set.of(),
+                    player.getYRot(),
+                    player.getXRot()
+            );
+        }
 
         return InteractionResult.SUCCESS;
     }

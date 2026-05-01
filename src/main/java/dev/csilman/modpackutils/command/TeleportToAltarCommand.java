@@ -36,7 +36,7 @@ public class TeleportToAltarCommand {
 
 
         player.displayClientMessage(
-                Component.literal("Reset altar stage to DORMANT."),
+                Component.literal("Teleported to Altar Midpoint."),
                 true
         );
 
