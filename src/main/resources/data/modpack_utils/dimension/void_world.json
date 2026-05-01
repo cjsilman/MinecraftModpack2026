@@ -1,0 +1,16 @@
+{
+  "type": "modpack_utils:void_world_type",
+  "generator": {
+    "type": "modpack_utils:boss_arena",
+    "chunk_radius": 10,
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:end_highlands"
+    },
+    "settings": "minecraft:end",
+    "allowed_structure_sets": [
+      "modpack_utils:void_world_boss_set",
+      "modpack_utils:void_world_spawn_set"
+    ]
+  }
+}

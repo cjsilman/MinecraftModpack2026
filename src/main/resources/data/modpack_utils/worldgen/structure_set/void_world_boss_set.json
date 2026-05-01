@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "cataclysm:ruined_citadel",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "modpack_utils:fixed",
+    "chunk_x": 0,
+    "chunk_z": 0,
+    "dimensions": [
+      "modpack_utils:void_world"
+    ]
+  }
+}
