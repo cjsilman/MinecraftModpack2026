@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.SACRED_STONE);
                         output.accept(ModItems.GOD_THREAD);
+                        output.accept(ModItems.SYNCHRONIZED_THREAD);
                         output.accept(ModItems.FRAGMENTED_MEMORY);
                         output.accept(ModItems.ABYSS_HEART);
                         output.accept(ModItems.CURSED_HEART);

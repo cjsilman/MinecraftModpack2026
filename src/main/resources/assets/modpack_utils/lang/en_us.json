@@ -29,6 +29,7 @@
   "block.modpack_utils.malkuth_beacon_block": "Malkuth Beacon",
 
   "item.modpack_utils.god_thread": "Primordial Thread",
+  "item.modpack_utils.synchronized_thread": "Synchronized Primordial Thread",
   "item.modpack_utils.fragmented_memory": "Fragmented Memory",
   "item.modpack_utils.abyss_heart": "Abyss Heart",
   "item.modpack_utils.cursed_heart": "Cursed Heart",

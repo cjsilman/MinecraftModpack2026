@@ -60,7 +60,7 @@ public class SacredStoneBlock extends Block {
                     for (ServerPlayer player : nearbyPlayers) {
                         player.addEffect(new MobEffectInstance(
                                 MobEffects.BLINDNESS,
-                                75,
+                                80,
                                 0,
                                 false,
                                 true
@@ -68,7 +68,7 @@ public class SacredStoneBlock extends Block {
 
                         player.addEffect(new MobEffectInstance(
                                 MobEffects.DARKNESS,
-                                75,
+                                80,
                                 0,
                                 false,
                                 true

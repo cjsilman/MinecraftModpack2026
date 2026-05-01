@@ -48,6 +48,8 @@ public class ModItems {
     public static final DeferredItem<Item> CHESED_HEART = ITEMS.register("chesed_heart",
             () -> new PrimordialHeartItem(new Item.Properties().fireResistant()));
 
+    public static final DeferredItem<Item> SYNCHRONIZED_THREAD = ITEMS.registerItem("synchronized_thread", Item::new, new Item.Properties().fireResistant());
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
