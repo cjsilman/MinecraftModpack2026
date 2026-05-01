@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "cataclysm:ancient_factory",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "modpack_utils:fixed",
+    "chunk_x": 0,
+    "chunk_z": 0,
+    "dimensions": [
+      "modpack_utils:mech_world"
+    ]
+  }
+}

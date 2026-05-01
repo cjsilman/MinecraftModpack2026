@@ -1,0 +1,16 @@
+{
+  "type": "modpack_utils:mech_world_type",
+  "generator": {
+    "type": "modpack_utils:boss_arena",
+    "chunk_radius": 10,
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:lush_caves"
+    },
+    "settings": "minecraft:overworld",
+    "allowed_structure_sets": [
+      "modpack_utils:mech_world_boss_set",
+      "modpack_utils:mech_world_spawn_set"
+    ]
+  }
+}

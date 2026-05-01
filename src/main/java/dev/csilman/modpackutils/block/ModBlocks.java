@@ -88,10 +88,10 @@ public class ModBlocks {
             () -> new BeaconPedestalBlock(
                     BlockBehaviour.Properties.of().strength(20.0f),
                     new MemoryDestination(
-                            ModDimensions.ABYSS_WORLD,
-                            0,
-                            100,
-                            0,
+                            ModDimensions.MECH_WORLD,
+                            9.5,
+                            75,
+                            -57.5,
                             5
                     )
             )
@@ -101,10 +101,10 @@ public class ModBlocks {
             () -> new BeaconPedestalBlock(
                     BlockBehaviour.Properties.of().strength(20.0f),
                     new MemoryDestination(
-                            ModDimensions.ABYSS_WORLD,
-                            0,
-                            100,
-                            0,
+                            ModDimensions.MONSTROUS_WORLD,
+                            -5.5,
+                            70,
+                            -102.5,
                             5
                     )
             )
@@ -129,7 +129,7 @@ public class ModBlocks {
                     new MemoryDestination(
                             ModDimensions.VOID_WORLD,
                             -5.5,
-                            75,
+                            65,
                             -102.5,
                             5
                     )
