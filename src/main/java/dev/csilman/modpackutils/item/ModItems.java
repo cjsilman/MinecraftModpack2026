@@ -3,6 +3,7 @@ package dev.csilman.modpackutils.item;
 import dev.csilman.modpackutils.ModpackUtilsMod;
 import dev.csilman.modpackutils.item.custom.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -11,10 +12,10 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ModpackUtilsMod.MOD_ID);
 
     public static final DeferredItem<Item> GOD_THREAD = ITEMS.register("god_thread",
-            () -> new GodThreadItem(new Item.Properties().fireResistant()));
+            () -> new GodThreadItem(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
 
     public static final DeferredItem<Item> FRAGMENTED_MEMORY = ITEMS.register("fragmented_memory",
-            () -> new FragmentedMemoryItem(new Item.Properties()));
+            () -> new FragmentedMemoryItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static final DeferredItem<Item> ABYSS_HEART = ITEMS.register("abyss_heart",
             () -> new PrimordialHeartItem(new Item.Properties().fireResistant()));
@@ -46,13 +47,13 @@ public class ModItems {
     public static final DeferredItem<Item> CHESED_HEART = ITEMS.register("chesed_heart",
             () -> new PrimordialHeartItem(new Item.Properties().fireResistant()));
 
-    public static final DeferredItem<Item> SYNCHRONIZED_THREAD = ITEMS.registerItem("synchronized_thread", Item::new, new Item.Properties().fireResistant());
+    public static final DeferredItem<Item> SYNCHRONIZED_THREAD = ITEMS.registerItem("synchronized_thread", Item::new, new Item.Properties().fireResistant().rarity(Rarity.EPIC));
 
     public static final DeferredItem<Item> FOCUS_CRYSTAL = ITEMS.register("focus_crystal",
             () -> new FocusCrystalItem(new Item.Properties().fireResistant()));
 
     public static final DeferredItem<Item> TUNED_CRYSTAL = ITEMS.register("tuned_crystal",
-            () -> new TunedCrystalItem(new Item.Properties().fireResistant()));
+            () -> new TunedCrystalItem(new Item.Properties().fireResistant().rarity(Rarity.RARE)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
