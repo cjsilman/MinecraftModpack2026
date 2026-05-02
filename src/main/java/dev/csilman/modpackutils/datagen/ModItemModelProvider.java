@@ -22,6 +22,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(ModItems.GOD_THREAD.get());
         basicItem(ModItems.SYNCHRONIZED_THREAD.get());
+        basicItem(ModItems.FOCUS_CRYSTAL.get());
+        basicItem(ModItems.TUNED_CRYSTAL.get());
         basicItem(ModItems.FRAGMENTED_MEMORY.get());
         basicItem(ModItems.ABYSS_HEART.get());
         basicItem(ModItems.CURSED_HEART.get());

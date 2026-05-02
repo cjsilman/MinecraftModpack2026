@@ -30,6 +30,8 @@
 
   "item.modpack_utils.god_thread": "Primordial Thread",
   "item.modpack_utils.synchronized_thread": "Synchronized Thread",
+  "item.modpack_utils.focus_crystal": "Focus Crystal",
+  "item.modpack_utils.tuned_crystal": "Tuned Crystal",
   "item.modpack_utils.fragmented_memory": "Fragmented Memory",
   "item.modpack_utils.abyss_heart": "Abyss Heart",
   "item.modpack_utils.cursed_heart": "Cursed Heart",
@@ -48,6 +50,8 @@
 
   "tooltip.modpack_utils.primordial_heart.tooltip.1": "Lay it to rest upon an ancient stone, and something greater shall emerge.",
   "tooltip.modpack_utils.fragmented_memory.tooltip.1": "A key piece in gaining access to a forgotten time.",
+  "tooltip.modpack_utils.focus_crystal.tooltip.1": "Seek the rock that neither time nor force can break, use this on it where stars do not shine in endless emptiness.",
+  "tooltip.modpack_utils.tuned_crystal.tooltip.1": "Tuned to the heart of the world.",
 
   "info.modpack_utils.altar_event.awakening_start_title": "",
   "info.modpack_utils.altar_event.awakening_start_subtitle": "Something stirs at the altar..."

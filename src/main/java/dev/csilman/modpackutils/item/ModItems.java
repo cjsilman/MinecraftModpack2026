@@ -1,9 +1,7 @@
 package dev.csilman.modpackutils.item;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
-import dev.csilman.modpackutils.item.custom.FragmentedMemoryItem;
-import dev.csilman.modpackutils.item.custom.GodThreadItem;
-import dev.csilman.modpackutils.item.custom.PrimordialHeartItem;
+import dev.csilman.modpackutils.item.custom.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -49,6 +47,12 @@ public class ModItems {
             () -> new PrimordialHeartItem(new Item.Properties().fireResistant()));
 
     public static final DeferredItem<Item> SYNCHRONIZED_THREAD = ITEMS.registerItem("synchronized_thread", Item::new, new Item.Properties().fireResistant());
+
+    public static final DeferredItem<Item> FOCUS_CRYSTAL = ITEMS.register("focus_crystal",
+            () -> new FocusCrystalItem(new Item.Properties().fireResistant()));
+
+    public static final DeferredItem<Item> TUNED_CRYSTAL = ITEMS.register("tuned_crystal",
+            () -> new TunedCrystalItem(new Item.Properties().fireResistant()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
