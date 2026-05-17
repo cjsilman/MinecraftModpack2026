@@ -6,7 +6,7 @@ public class SiegeWaveDefinitions {
     public static final List<SiegeWave> WAVES = List.of(
             new SiegeWave(
                     "",
-                    "§4Overconfidence",
+                    "§4Let ye face, the consequences, of their own actions",
                     List.of(
                            new SiegeWave.WaveEntry("cataclysm:clawdian", 12, null)
 
