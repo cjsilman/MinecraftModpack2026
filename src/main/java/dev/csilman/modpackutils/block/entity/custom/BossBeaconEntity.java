@@ -160,7 +160,7 @@ public class BossBeaconEntity extends BlockEntity {
                     0,
                     true,
                     false,
-                    true
+                    false
             ));
         }
     }
