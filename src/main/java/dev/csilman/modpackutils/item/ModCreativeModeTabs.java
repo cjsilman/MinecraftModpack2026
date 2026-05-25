@@ -60,6 +60,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.VOID_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.CHESED_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.MALKUTH_BEACON_PEDESTAL_BLOCK);
+                        output.accept(ModBlocks.JUDGEMENT_BEACON_PEDESTAL_BLOCK);
                         output.accept(ModBlocks.HOME_BEACON_PEDESTAL_BLOCK);
                     })).build());
 

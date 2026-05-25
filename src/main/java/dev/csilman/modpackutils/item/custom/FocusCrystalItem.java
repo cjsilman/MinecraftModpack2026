@@ -4,6 +4,7 @@ import dev.csilman.modpackutils.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -54,7 +55,7 @@ public class FocusCrystalItem extends Item {
                 }
 
                 level.playSound(null, pos,
-                        net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                        SoundEvents.AMETHYST_BLOCK_RESONATE,
                         net.minecraft.sounds.SoundSource.PLAYERS,
                         1.0f, 1.2f);
 

@@ -28,7 +28,7 @@ public class TeleportToAltarCommand {
         Player player = context.getSource().getPlayer();
 
         player.teleportTo(overworld,
-                data.getAltarMidpoint().getX(), data.getAltarMidpoint().getY()+1, data.getAltarMidpoint().getZ(),
+                data.getAltarMidpoint().getX()+0.5f, data.getAltarMidpoint().getY()+1, data.getAltarMidpoint().getZ()+0.5f,
                 Set.of(),
                 player.getYRot(),
                 player.getXRot()

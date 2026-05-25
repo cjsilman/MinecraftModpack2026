@@ -45,6 +45,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         horizontalBlockItem(ModBlocks.VOID_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.CHESED_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.MALKUTH_BEACON_PEDESTAL_BLOCK);
+        horizontalBlockItem(ModBlocks.JUDGEMENT_BEACON_PEDESTAL_BLOCK);
         horizontalBlockItem(ModBlocks.HOME_BEACON_PEDESTAL_BLOCK);
     }
 

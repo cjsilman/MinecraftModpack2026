@@ -15,6 +15,7 @@
   "block.modpack_utils.void_beacon_pedestal_block": "Void Pedestal",
   "block.modpack_utils.chesed_beacon_pedestal_block": "Chesed Pedestal",
   "block.modpack_utils.malkuth_beacon_pedestal_block": "Malkuth Pedestal",
+  "block.modpack_utils.judgement_beacon_pedestal_block": "Judgement Pedestal",
   "block.modpack_utils.home_beacon_pedestal_block": "Home Pedestal",
 
   "block.modpack_utils.abyss_beacon_block": "Abyss Beacon",
@@ -52,6 +53,7 @@
   "tooltip.modpack_utils.fragmented_memory.tooltip.1": "A key piece in gaining access to a forgotten time.",
   "tooltip.modpack_utils.focus_crystal.tooltip.1": "Seek the rock that neither time nor force can break, use this on it where stars do not shine in endless emptiness.",
   "tooltip.modpack_utils.tuned_crystal.tooltip.1": "Tuned to the heart of the world.",
+  "tooltip.modpack_utils.focus_crystal.tuned": "Tuned.",
 
   "info.modpack_utils.altar_event.awakening_start_title": "",
   "info.modpack_utils.altar_event.awakening_start_subtitle": "Something stirs at the altar..."

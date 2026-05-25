@@ -1,6 +1,7 @@
 package dev.csilman.modpackutils.util.altar;
 
 import dev.csilman.modpackutils.ModpackUtilsMod;
+import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.data.AltarSavedData;
 import dev.csilman.modpackutils.util.altar.siege.SiegePhase;
 import dev.csilman.modpackutils.util.altar.siege.SiegeWave;
@@ -39,6 +40,7 @@ public class AltarEventManager {
         switch(data.getAltarPhase()) {
             case AWAKENING -> tickAwakening(overworld, data);
             case SIEGE -> tickSiege(overworld, data);
+            case BOSS -> tickBoss(overworld, data);
             default -> {}
         }
 
@@ -70,6 +72,7 @@ public class AltarEventManager {
         if (currentTick >= TICKS_TO_SIEGE) {
             data.setAltarPhase(AltarEventPhase.SIEGE);
             ModpackUtilsMod.LOGGER.info("[ModpackUtils] Altar advancing to SIEGE phase.");
+            data.setTicksInPhase(0);
         }
 
 
@@ -157,10 +160,10 @@ public class AltarEventManager {
             if (currentSiegePhase == SiegePhase.COMPLETED_SIEGE) {
                 broadcastTitle(level,
                         Component.literal(""),
-                        Component.literal("It is free..."));
-                broadcastSound(level, SoundEvents.ENDER_DRAGON_GROWL, 0.75f);
+                        Component.literal("Complete."));
 
                 data.setAltarPhase(AltarEventPhase.BOSS);
+                data.setTicksInPhase(0);
                 AltarWeatherManager.resetWeather(level);
 
                 ModpackUtilsMod.LOGGER.info("[ModpackUtils] Siege completed. Advancing to BOSS phase.");
@@ -196,6 +199,24 @@ public class AltarEventManager {
             summonLightning(level, data.getAltarMidpoint(), -25, 25);
         }
 
+    }
+
+    private static void tickBoss(ServerLevel level, AltarSavedData data) {
+        int currentTick = data.getTicksInPhase();
+
+        if (currentTick == 100) {
+            broadcastTitle(level,
+                    Component.literal(""),
+                    Component.literal("Proceed..."));
+
+            BlockPos altarMidpoint = data.getAltarMidpoint();
+            level.setBlock(altarMidpoint, ModBlocks.JUDGEMENT_BEACON_PEDESTAL_BLOCK.get().defaultBlockState(), 3);
+
+            broadcastSound(level, SoundEvents.END_PORTAL_SPAWN, 0.5f);
+
+            data.setAltarPhase(AltarEventPhase.DEFEATED);
+            data.setTicksInPhase(0);
+        }
     }
 
     private static void startSiegeWave(ServerLevel level, AltarSavedData data, int waveNumber) {
