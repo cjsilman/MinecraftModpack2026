@@ -5,27 +5,37 @@ import java.util.List;
 public class SiegeWaveDefinitions {
     public static final List<SiegeWave> WAVES = List.of(
             new SiegeWave(
-                    "",
-                    "§4Consequence",
+                    "1/4",
+                    "§cConsequence",
                     List.of(
-                           new SiegeWave.WaveEntry("cataclysm:clawdian", 12, null)
-
+                           new SiegeWave.WaveEntry("fdbosses:fire_malkuth_warrior", 12, null, 1),
+                           new SiegeWave.WaveEntry("fdbosses:ice_malkuth_warrior", 12, null, 1),
+                           new SiegeWave.WaveEntry("fdbosses:judgement_bird", 24, null, 1.5f)
                     )
             ),
             new SiegeWave(
-                    "",
-                    "§6Opulence",
+                    "2/4",
+                    "§bOverconfidence",
                     List.of(
-                           new SiegeWave.WaveEntry("royalvariations:royal_skeleton", 12, null),
-                           new SiegeWave.WaveEntry("minecraft:skeleton", 24, null),
-                           new SiegeWave.WaveEntry("royalvariations:royal_zombie", 12, null)
+                           new SiegeWave.WaveEntry("iceandfire:siren", 4, null, 1),
+                           new SiegeWave.WaveEntry("iceandfire:cyclops", 12, null, 1)
                     )
             ),
             new SiegeWave(
-                    "",
-                    "Test2",
+                    "3/4",
+                    "§4Undone",
                     List.of(
-                            new SiegeWave.WaveEntry("minecraft:skeleton", 2, null)
+                            new SiegeWave.WaveEntry("iceandfire:dread_ghoul", 24, null, 1),
+                            new SiegeWave.WaveEntry("iceandfire:dread_lich", 12, null, 1),
+                            new SiegeWave.WaveEntry("iceandfire:dread_knight", 12, null, 1)
+                    )
+            ),
+            new SiegeWave(
+                    "4/4",
+                    "§6Judgement",
+                    List.of(
+                            new SiegeWave.WaveEntry("cataclysm:scylla", 2, null, 1),
+                            new SiegeWave.WaveEntry("cataclysm:cindaria", 8, null, 1)
                     )
             )
     );

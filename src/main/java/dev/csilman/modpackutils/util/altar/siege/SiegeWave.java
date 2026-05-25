@@ -11,7 +11,8 @@ public record SiegeWave(
     public record WaveEntry(
             String entityRegistryName,
             int count,
-            String customName
+            String customName,
+            float spreadMultiplier
     ) {}
 
 }

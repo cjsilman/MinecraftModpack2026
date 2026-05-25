@@ -72,7 +72,7 @@ public class SiegeWaveSpawner {
         }
 
         double angle = RANDOM.nextDouble() * 2 * Math.PI;
-        double radius = SPAWN_RADIUS_MIN + RANDOM.nextDouble() * (SPAWN_RADIUS_MAX - SPAWN_RADIUS_MIN);
+        double radius = SPAWN_RADIUS_MIN + RANDOM.nextDouble() * ((SPAWN_RADIUS_MAX*entry.spreadMultiplier()) - (SPAWN_RADIUS_MIN* entry.spreadMultiplier()));
 
         double x = pos.getX() + radius * Math.cos(angle);
         double z = pos.getZ() + radius * Math.sin(angle);
@@ -100,7 +100,7 @@ public class SiegeWaveSpawner {
 
     private static void applyWaveBuff(Mob mob) {
         if (mob.getAttribute(Attributes.MAX_HEALTH) != null) {
-            mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(mob.getMaxHealth() * 2.0);
+            mob.getAttribute(Attributes.MAX_HEALTH).setBaseValue(mob.getMaxHealth() * 3.0);
             mob.setHealth(mob.getMaxHealth());
         }
 
@@ -111,11 +111,11 @@ public class SiegeWaveSpawner {
 
         if (mob.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
             mob.getAttribute(Attributes.ATTACK_DAMAGE)
-                    .setBaseValue(mob.getAttributeValue(Attributes.ATTACK_DAMAGE) * 2.5);
+                    .setBaseValue(mob.getAttributeValue(Attributes.ATTACK_DAMAGE) * 3.5);
         }
 
         mob.addEffect(new MobEffectInstance(
-                MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 1, false, false));
+                MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 4, false, false));
 
         mob.addEffect(new MobEffectInstance(
                 MobEffects.SLOW_FALLING, 40, 1, false, false));

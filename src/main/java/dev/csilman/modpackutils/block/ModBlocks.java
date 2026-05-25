@@ -34,7 +34,7 @@ public class ModBlocks {
     // Beacon Pedestal Blocks - Must be before Boss Beacons
     public static final DeferredBlock<Block> ABYSS_BEACON_PEDESTAL_BLOCK = registerBlock("abyss_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                         ModDimensions.ABYSS_WORLD,
                         86.5,
@@ -47,7 +47,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CURSED_BEACON_PEDESTAL_BLOCK = registerBlock("cursed_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.CURSED_WORLD,
                             151.5,
@@ -60,7 +60,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> DESERT_BEACON_PEDESTAL_BLOCK = registerBlock("desert_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.DESERT_WORLD,
                             26.5,
@@ -73,7 +73,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> IGNIS_BEACON_PEDESTAL_BLOCK = registerBlock("ignis_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.IGNIS_WORLD,
                             -5.5,
@@ -86,7 +86,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MECH_BEACON_PEDESTAL_BLOCK = registerBlock("mech_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.MECH_WORLD,
                             9.5,
@@ -99,7 +99,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MONSTROUS_BEACON_PEDESTAL_BLOCK = registerBlock("monstrous_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.MONSTROUS_WORLD,
                             -5.5,
@@ -112,7 +112,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> STORM_BEACON_PEDESTAL_BLOCK = registerBlock("storm_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.STORM_WORLD,
                             -5.5,
@@ -125,7 +125,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> VOID_BEACON_PEDESTAL_BLOCK = registerBlock("void_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.VOID_WORLD,
                             -5.5,
@@ -138,7 +138,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CHESED_BEACON_PEDESTAL_BLOCK = registerBlock("chesed_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.CHESED_WORLD,
                             6.5,
@@ -151,7 +151,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MALKUTH_BEACON_PEDESTAL_BLOCK = registerBlock("malkuth_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.MALKUTH_WORLD,
                             -5.5,
@@ -164,7 +164,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> JUDGEMENT_BEACON_PEDESTAL_BLOCK = registerBlock("judgement_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             ModDimensions.JUDGEMENT_WORLD,
                             6.5,
@@ -177,7 +177,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> HOME_BEACON_PEDESTAL_BLOCK = registerBlock("home_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(99.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
                     new MemoryDestination(
                             Level.OVERWORLD,
                             0,
@@ -190,7 +190,7 @@ public class ModBlocks {
 
     // Boss Beacon Blocks
     public static final DeferredBlock<Block> ABYSS_BEACON_BLOCK = registerBlock("abyss_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     6427105,
                     ABYSS_BEACON_PEDESTAL_BLOCK,
@@ -199,7 +199,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block>
             CURSED_BEACON_BLOCK = registerBlock("cursed_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     3789490,
                     CURSED_BEACON_PEDESTAL_BLOCK,
@@ -207,7 +207,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> DESERT_BEACON_BLOCK = registerBlock("desert_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     16747048,
                     DESERT_BEACON_PEDESTAL_BLOCK,
@@ -216,7 +216,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> IGNIS_BEACON_BLOCK = registerBlock("ignis_beacon_block",
             () -> new BossBeaconBlock(
-                    BlockBehaviour.Properties.of()
+                    BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                             .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     106404, 
                     IGNIS_BEACON_PEDESTAL_BLOCK,
@@ -224,7 +224,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> MECH_BEACON_BLOCK = registerBlock("mech_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     16476957,
                     MECH_BEACON_PEDESTAL_BLOCK,
@@ -232,7 +232,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> MONSTROUS_BEACON_BLOCK = registerBlock("monstrous_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     15098896,
                     MONSTROUS_BEACON_PEDESTAL_BLOCK,
@@ -240,7 +240,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> STORM_BEACON_BLOCK = registerBlock("storm_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     10148061,
                     STORM_BEACON_PEDESTAL_BLOCK,
@@ -248,7 +248,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> VOID_BEACON_BLOCK = registerBlock("void_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     6569060,
                     VOID_BEACON_PEDESTAL_BLOCK,
@@ -256,7 +256,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> CHESED_BEACON_BLOCK = registerBlock("chesed_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     7452973,
                     CHESED_BEACON_PEDESTAL_BLOCK,
@@ -264,7 +264,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<Block> MALKUTH_BEACON_BLOCK = registerBlock("malkuth_beacon_block",
-            () -> new BossBeaconBlock(BlockBehaviour.Properties.of()
+            () -> new BossBeaconBlock(BlockBehaviour.Properties.of().strength(5.0f, 3600000.0f)
                     .lightLevel(state -> state.getValue(BossBeaconBlock.ACTIVE) ? 15 : 0),
                     2214637,
                     MALKUTH_BEACON_PEDESTAL_BLOCK,

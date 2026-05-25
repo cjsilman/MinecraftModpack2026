@@ -211,8 +211,13 @@ public class AltarEventManager {
 
             BlockPos altarMidpoint = data.getAltarMidpoint();
             level.setBlock(altarMidpoint, ModBlocks.JUDGEMENT_BEACON_PEDESTAL_BLOCK.get().defaultBlockState(), 3);
+            summonLightning(level, altarMidpoint, 0, 0);
+            spawnRing(level, altarMidpoint, 2, ParticleTypes.REVERSE_PORTAL, 1);
+            spawnRing(level, altarMidpoint, 2, ParticleTypes.REVERSE_PORTAL, 2);
+            spawnRing(level, altarMidpoint, 2, ParticleTypes.REVERSE_PORTAL, 3);
+            spawnRing(level, altarMidpoint, 2, ParticleTypes.REVERSE_PORTAL, 4);
 
-            broadcastSound(level, SoundEvents.END_PORTAL_SPAWN, 0.5f);
+            broadcastSound(level, SoundEvents.END_PORTAL_SPAWN, 1.5f);
 
             data.setAltarPhase(AltarEventPhase.DEFEATED);
             data.setTicksInPhase(0);
