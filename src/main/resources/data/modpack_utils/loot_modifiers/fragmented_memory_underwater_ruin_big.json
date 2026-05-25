@@ -1,0 +1,15 @@
+{
+  "type": "modpack_utils:modpack_loot_modifier",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/underwater_ruin_big"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.30
+    }
+  ],
+  "base_quantity": 2,
+  "item": "modpack_utils:fragmented_memory"
+}

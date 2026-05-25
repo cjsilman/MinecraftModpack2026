@@ -3,43 +3,42 @@ package dev.csilman.modpackutils.lootmodifiers.custom;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.csilman.modpackutils.util.ModTags;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 
-public class ModpackLootModifier extends LootModifier {
+public class BossLootModifier extends LootModifier {
 
-    public static final MapCodec<ModpackLootModifier> CODEC = RecordCodecBuilder.mapCodec(inst ->
+    public static final MapCodec<BossLootModifier> CODEC = RecordCodecBuilder.mapCodec(inst ->
             LootModifier.codecStart(inst).and(inst.group(
-                    Codec.INT.fieldOf("base_quantity").forGetter(e -> e.base_quantity),
-                    BuiltInRegistries.ITEM.byNameCodec().fieldOf("item").forGetter(e -> e.item)
-            )).apply(inst, ModpackLootModifier::new));
+                    Codec.INT.fieldOf("quantity").forGetter(e -> e.quantity),
+                    BuiltInRegistries.ITEM.byNameCodec().fieldOf("item").forGetter(e -> e.item),
+                    BuiltInRegistries.ITEM.byNameCodec().fieldOf("item2").forGetter(e -> e.item2)
+            )).apply(inst, BossLootModifier::new));
 
-    private final int base_quantity;
+    private final int quantity;
     private final Item item;
+    private final Item item2;
 
-    protected ModpackLootModifier(LootItemCondition[] conditionsIn, int quantity, Item item) {
+    protected BossLootModifier(LootItemCondition[] conditionsIn, int quantity, Item item, Item item2) {
         super(conditionsIn);
-        this.base_quantity = quantity;
+        this.quantity = quantity;
         this.item = item;
+        this.item2 = item2;
     }
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext lootContext) {
-
-        int randomModifier = lootContext.getLevel().getRandom().nextIntBetweenInclusive(0, 2);
-        int quantity = base_quantity+randomModifier;
-
         ItemStack itemStack = new ItemStack(item, quantity);
+        ItemStack itemStack2 = new ItemStack(item2, 1);
 
         generatedLoot.add(itemStack);
+        generatedLoot.add(itemStack2);
 
         return generatedLoot;
     }

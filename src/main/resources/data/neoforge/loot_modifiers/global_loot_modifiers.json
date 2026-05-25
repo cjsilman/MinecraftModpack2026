@@ -1,6 +1,26 @@
 {
   "replace": false,
   "entries": [
-    "modpack_utils:fragmented_memory_glm"
+    "modpack_utils:fragmented_memory_village_temple",
+    "modpack_utils:fragmented_memory_simple_dungeon",
+    "modpack_utils:fragmented_memory_jungle_temple",
+    "modpack_utils:fragmented_memory_abandoned_mineshaft",
+    "modpack_utils:fragmented_memory_end_city_treasure",
+    "modpack_utils:fragmented_memory_underwater_ruin_small",
+    "modpack_utils:fragmented_memory_underwater_ruin_big",
+    "modpack_utils:fragmented_memory_underwater_nether_bridge",
+    "modpack_utils:fragmented_memory_village_cartographer",
+    "modpack_utils:fragmented_memory_woodland_mansion",
+    "modpack_utils:fragmented_memory_ruined_portal",
+    "modpack_utils:beacon_the_leviathan",
+    "modpack_utils:beacon_ancient_remnant",
+    "modpack_utils:beacon_ignis",
+    "modpack_utils:beacon_maledictus",
+    "modpack_utils:beacon_the_harbinger",
+    "modpack_utils:beacon_scylla",
+    "modpack_utils:beacon_ender_guardian",
+    "modpack_utils:beacon_netherite_monstrosity",
+    "modpack_utils:beacon_malkuth",
+    "modpack_utils:beacon_chesed"
   ]
 }

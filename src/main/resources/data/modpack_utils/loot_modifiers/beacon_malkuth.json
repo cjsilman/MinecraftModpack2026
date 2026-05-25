@@ -1,0 +1,12 @@
+{
+  "type": "modpack_utils:boss_loot_modifier",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "fdbosses:entities/malkuth"
+    }
+  ],
+  "quantity": 1,
+  "item": "modpack_utils:malkuth_beacon_block",
+  "item2": "modpack_utils:malkuth_heart"
+}

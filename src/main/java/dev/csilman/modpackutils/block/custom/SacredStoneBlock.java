@@ -45,7 +45,7 @@ public class SacredStoneBlock extends Block {
                     level.scheduleTick(pos, this, 70);
 
                     // Effects
-                    double radius = 16.0;
+                    double radius = 24.0;
                     List<ServerPlayer> nearbyPlayers = getNearbyPlayers(level, pos, radius);
 
                     level.playSound(
@@ -84,13 +84,13 @@ public class SacredStoneBlock extends Block {
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 
-        double radius = 16.0;
+        double radius = 24.0;
         List<ServerPlayer> nearbyPlayers = getNearbyPlayers(level, pos, radius);
 
         level.getEntitiesOfClass(ItemEntity.class, new AABB(pos).inflate(2))
                 .forEach(itemEntity -> {
                     if (isValidItem(itemEntity.getItem())) {
-                        itemEntity.setItem(new ItemStack(ModItems.GOD_THREAD.get(), itemEntity.getItem().getCount()));
+                        itemEntity.setItem(new ItemStack(ModItems.GOD_THREAD.get(), (itemEntity.getItem().getCount()*nearbyPlayers.size())));
                     }
                 });
 

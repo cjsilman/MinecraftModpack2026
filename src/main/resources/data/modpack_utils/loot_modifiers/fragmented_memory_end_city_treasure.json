@@ -3,14 +3,13 @@
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
-      "loot_table_id": "minecraft:blocks/dirt"
+      "loot_table_id": "minecraft:chests/end_city_treasure"
     },
     {
       "condition": "minecraft:random_chance",
-      "chance": 0.25
+      "chance": 0.40
     }
   ],
-  "field1": "somestring",
-  "quantity": 10,
+  "base_quantity": 3,
   "item": "modpack_utils:fragmented_memory"
 }

@@ -1,0 +1,12 @@
+{
+  "type": "modpack_utils:boss_loot_modifier",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "cataclysm:entities/ignis"
+    }
+  ],
+  "quantity": 1,
+  "item": "modpack_utils:ignis_beacon_block",
+  "item2": "modpack_utils:ignis_heart"
+}

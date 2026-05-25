@@ -1,0 +1,11 @@
+{
+  "type": "modpack_utils:modpack_loot_modifier",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/ruined_portal"
+    }
+  ],
+  "base_quantity": 1,
+  "item": "modpack_utils:fragmented_memory"
+}
