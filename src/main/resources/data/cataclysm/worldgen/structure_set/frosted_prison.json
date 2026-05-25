@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "cataclysm:frosted_prison",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 5872139439,
+    "frequency": 0.01,
+    "spacing": 80,
+    "separation": 50
+  }
+}

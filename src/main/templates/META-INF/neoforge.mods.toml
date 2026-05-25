@@ -46,7 +46,7 @@ authors="Sillychris2011"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-This contains all functionality necessary for the 2026 Minecraft Modpack.
+This contains all functionality necessary for the 2026 Minecraft Judgement Modpack.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

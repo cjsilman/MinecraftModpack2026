@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 5456445,
+    "frequency": 0.0001,
+    "separation": 50,
+    "spacing": 100
+  },
+  "structures": [
+    {
+      "structure": "fdbosses:geburah_arena",
+      "weight": 1
+    }
+  ]
+}

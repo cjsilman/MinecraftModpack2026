@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "cataclysm:soul_black_smith",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1984567320,
+    "frequency": 0.01,
+    "spacing": 60,
+    "separation": 50
+  }
+}

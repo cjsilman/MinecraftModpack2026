@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "cataclysm:ancient_factory",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "frequency": 0.01,
+    "salt": 319514301,
+    "spacing": 112,
+    "separation": 70
+  }
+}

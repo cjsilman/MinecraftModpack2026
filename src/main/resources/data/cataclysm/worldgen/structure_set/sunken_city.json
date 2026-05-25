@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "cataclysm:sunken_city",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1673928450,
+    "frequency": 0.01,
+    "spacing": 100,
+    "separation": 70,
+    "spread_type": "triangular"
+  }
+}
