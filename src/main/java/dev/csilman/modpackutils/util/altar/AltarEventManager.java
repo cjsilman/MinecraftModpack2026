@@ -27,7 +27,7 @@ import java.util.List;
 public class AltarEventManager {
 
     private static final int TICKS_TO_SIEGE = 400;
-    private static final int SIEGE_ASSIST_TIME = 400;
+    private static final int SIEGE_ASSIST_TIME = 3000; // 2.5 minutes until highlight all mobs
     private static final int TIME_TO_START_NEXT_WAVE = 100;
 
     public static void tick(ServerLevel overworld) {
