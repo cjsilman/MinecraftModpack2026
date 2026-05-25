@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -34,7 +35,7 @@ public class ModBlocks {
     // Beacon Pedestal Blocks - Must be before Boss Beacons
     public static final DeferredBlock<Block> ABYSS_BEACON_PEDESTAL_BLOCK = registerBlock("abyss_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                         ModDimensions.ABYSS_WORLD,
                         86.5,
@@ -47,7 +48,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CURSED_BEACON_PEDESTAL_BLOCK = registerBlock("cursed_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.CURSED_WORLD,
                             151.5,
@@ -60,7 +61,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> DESERT_BEACON_PEDESTAL_BLOCK = registerBlock("desert_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.DESERT_WORLD,
                             26.5,
@@ -73,7 +74,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> IGNIS_BEACON_PEDESTAL_BLOCK = registerBlock("ignis_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.IGNIS_WORLD,
                             -5.5,
@@ -86,7 +87,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MECH_BEACON_PEDESTAL_BLOCK = registerBlock("mech_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.MECH_WORLD,
                             9.5,
@@ -99,7 +100,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MONSTROUS_BEACON_PEDESTAL_BLOCK = registerBlock("monstrous_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.MONSTROUS_WORLD,
                             -5.5,
@@ -112,7 +113,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> STORM_BEACON_PEDESTAL_BLOCK = registerBlock("storm_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.STORM_WORLD,
                             -5.5,
@@ -125,7 +126,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> VOID_BEACON_PEDESTAL_BLOCK = registerBlock("void_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.VOID_WORLD,
                             -5.5,
@@ -138,7 +139,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CHESED_BEACON_PEDESTAL_BLOCK = registerBlock("chesed_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.CHESED_WORLD,
                             6.5,
@@ -151,7 +152,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MALKUTH_BEACON_PEDESTAL_BLOCK = registerBlock("malkuth_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.MALKUTH_WORLD,
                             -5.5,
@@ -164,7 +165,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> JUDGEMENT_BEACON_PEDESTAL_BLOCK = registerBlock("judgement_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             ModDimensions.JUDGEMENT_WORLD,
                             6.5,
@@ -177,7 +178,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> HOME_BEACON_PEDESTAL_BLOCK = registerBlock("home_beacon_pedestal_block",
             () -> new BeaconPedestalBlock(
-                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f),
+                    BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f).pushReaction(PushReaction.BLOCK),
                     new MemoryDestination(
                             Level.OVERWORLD,
                             0,
