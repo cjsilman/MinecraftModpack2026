@@ -1,25 +1,15 @@
 
-Installation information
+Summer 2026 - Judgement Modpack Utilities
 =======
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+This mod is intended to be used in the Summer 2026 - Judgement modpack.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Main Idea
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+Located around 60, -70 is an ancient structure that, with the use of Memory Fragments, allows you to teleport into dimensions that include just ONE specific boss from L_Ender's Cataclysm or Qliphoth Awakening. The boss world is limited in size, such that it doesn't cause too much performance issues. Once all bosses are defeated, it is time to be judged and face the weight of your actions through the final boss (Geburah from Qliphoth Awakening).
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+Several other items, such as Focus Crystal, Tuned Crystal, Primordial Thread, and Synchronized Thread are added to help block progression of certain items.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+While this mod lays the general progression groundwork, the use of Primordial Thread or other items in the mod need to be edited for a specific modpack's purpose. There are no recipes other than converting the Focus Crystal to a Tuned Crystal (read the tooltip to find out how!). 
+
+Important note: Since the Spawn Altar is the primary method to access the bosses, Cataclysm and FDBosses structures are prevented from spawning regularly. This is done by making them extremely rare. Please use caution if using the /locate command on those structures, as it may cause it to freeze up the server. To prevent accidental freezes, these structures still exist, but typically >30,000 blocks away from spawn.
