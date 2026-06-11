@@ -30,7 +30,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> SACRED_STONE = registerBlock("sacred_stone",
-            () -> new SacredStoneBlock(BlockBehaviour.Properties.of().strength(20.0f)));
+            () -> new SacredStoneBlock(BlockBehaviour.Properties.of().strength(-1.0f, 3600000.0f)));
 
     // Beacon Pedestal Blocks - Must be before Boss Beacons
     public static final DeferredBlock<Block> ABYSS_BEACON_PEDESTAL_BLOCK = registerBlock("abyss_beacon_pedestal_block",

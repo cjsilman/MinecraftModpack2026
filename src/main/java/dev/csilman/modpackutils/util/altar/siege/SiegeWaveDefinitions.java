@@ -18,7 +18,7 @@ public class SiegeWaveDefinitions {
                     "§bOverconfidence",
                     List.of(
                            new SiegeWave.WaveEntry("iceandfire:siren", 4, null, 1),
-                           new SiegeWave.WaveEntry("iceandfire:cyclops", 12, null, 1)
+                           new SiegeWave.WaveEntry("iceandfire:cyclops", 8, null, 1)
                     )
             ),
             new SiegeWave(
