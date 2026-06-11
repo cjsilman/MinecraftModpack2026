@@ -31,6 +31,7 @@ public class AltarSavedData extends SavedData {
     private int siegeWave = 0;
     private SiegePhase siegePhase = SiegePhase.NONE;
     boolean mobsHighlighted = false;
+    boolean firstHeartConverted = false;
 
 
     public static AltarSavedData get(ServerLevel overworld) {
@@ -60,6 +61,9 @@ public class AltarSavedData extends SavedData {
         data.siegePhase = SiegePhase.valueOf(compoundTag.getString("siegePhase"));
         data.mobsHighlighted = compoundTag.getBoolean("mobsHighlighted");
 
+        // General Data
+        data.firstHeartConverted = compoundTag.getBoolean("firstHeartConverted");
+
 
         if (compoundTag.contains("pedestals")) {
             int[] raw = compoundTag.getIntArray("pedestals");
@@ -88,6 +92,8 @@ public class AltarSavedData extends SavedData {
         compoundTag.putInt("siegeWave", siegeWave);
         compoundTag.putString("siegePhase", siegePhase.name());
         compoundTag.putBoolean("mobsHighlighted", mobsHighlighted);
+
+        compoundTag.putBoolean("firstHeartConverted", firstHeartConverted);
 
         // # of pedestals registered at first server run (See GlobalBeaconTracker)
         int[] raw = new int[registeredPedestals.size()*3];
@@ -238,6 +244,15 @@ public class AltarSavedData extends SavedData {
 
     public void setMobsHighlighted(boolean mobsHighlighted) {
         this.mobsHighlighted = mobsHighlighted;
+        setDirty();
+    }
+
+    public boolean isFirstHeartConverted() {
+        return firstHeartConverted;
+    }
+
+    public void setFirstHeartConverted(boolean firstHeartConverted) {
+        this.firstHeartConverted = firstHeartConverted;
         setDirty();
     }
 

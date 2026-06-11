@@ -102,13 +102,6 @@ config = "modpackutils.mixins.json"
     ordering = "AFTER"
     side = "BOTH"
 
-[[dependencies.modpack_utils]]
-    modId = "blockpops"
-    type = "required"
-    versionRange = "*"
-    ordering = "AFTER"
-    side = "BOTH"
-
 # Here's another dependency
 [[dependencies.${mod_id}]]
     modId="minecraft"

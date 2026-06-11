@@ -1,5 +1,6 @@
 package dev.csilman.modpackutils.block.custom;
 
+import dev.csilman.modpackutils.data.AltarSavedData;
 import dev.csilman.modpackutils.item.ModItems;
 import dev.csilman.modpackutils.util.ModTags;
 import net.minecraft.ChatFormatting;
@@ -84,13 +85,23 @@ public class SacredStoneBlock extends Block {
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 
+        ServerLevel overworld = level.getServer().getLevel(Level.OVERWORLD);
+
+        AltarSavedData data = AltarSavedData.get(overworld);
+
         double radius = 24.0;
         List<ServerPlayer> nearbyPlayers = getNearbyPlayers(level, pos, radius);
 
         level.getEntitiesOfClass(ItemEntity.class, new AABB(pos).inflate(2))
                 .forEach(itemEntity -> {
                     if (isValidItem(itemEntity.getItem())) {
-                        itemEntity.setItem(new ItemStack(ModItems.GOD_THREAD.get(), (itemEntity.getItem().getCount()*nearbyPlayers.size())));
+                        int numberOfThreadsToMake = itemEntity.getItem().getCount()*nearbyPlayers.size();
+
+                        if (numberOfThreadsToMake > 3) {
+                            numberOfThreadsToMake = 3;
+                        }
+
+                        itemEntity.setItem(new ItemStack(ModItems.GOD_THREAD.get(), numberOfThreadsToMake));
                     }
                 });
 
@@ -107,15 +118,20 @@ public class SacredStoneBlock extends Block {
         lightning.setVisualOnly(true);
         level.addFreshEntity(lightning);
 
-        if (level.random.nextFloat() < 0.05f) { // 5% chance
-            SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, level, pos, 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
-            for (ServerPlayer player : nearbyPlayers) {
-                player.displayClientMessage(
-                        Component.translatable("info.modpack_utils.sacred_stone.spawn_warning")
-                                .withStyle(ChatFormatting.DARK_RED),
-                        true
-                );
+        if (data.isFirstHeartConverted()) {
+            // Only spawn Warden after first heart has been converted
+            if (level.random.nextFloat() < 0.05f) { // 5% chance
+                SpawnUtil.trySpawnMob(EntityType.WARDEN, MobSpawnType.TRIGGERED, level, pos, 20, 5, 6, SpawnUtil.Strategy.ON_TOP_OF_COLLIDER);
+                for (ServerPlayer player : nearbyPlayers) {
+                    player.displayClientMessage(
+                            Component.translatable("info.modpack_utils.sacred_stone.spawn_warning")
+                                    .withStyle(ChatFormatting.DARK_RED),
+                            true
+                    );
+                }
             }
+        } else {
+            data.setFirstHeartConverted(true);
         }
 
         super.tick(state, level, pos, random);
