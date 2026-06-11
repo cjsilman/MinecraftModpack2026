@@ -184,7 +184,7 @@ public class ModBlocks {
                             0,
                             100,
                             0,
-                            1
+                            0
                     )
             )
     );
