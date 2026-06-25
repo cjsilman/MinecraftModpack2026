@@ -97,10 +97,6 @@ public class SacredStoneBlock extends Block {
                     if (isValidItem(itemEntity.getItem())) {
                         int numberOfThreadsToMake = itemEntity.getItem().getCount()*nearbyPlayers.size();
 
-                        if (numberOfThreadsToMake > 3) {
-                            numberOfThreadsToMake = 3;
-                        }
-
                         itemEntity.setItem(new ItemStack(ModItems.GOD_THREAD.get(), numberOfThreadsToMake));
                     }
                 });
