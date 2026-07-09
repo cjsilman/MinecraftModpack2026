@@ -38,7 +38,7 @@ public class SiegeWaveSpawner {
                 ));
 
         playerScaleFactor = AltarEventManager.getNumberOfPlayersOnServer(level);
-        adjustedPlayerScaleFactor = (int) Math.ceil((playerScaleFactor/3.0));
+        adjustedPlayerScaleFactor = (int) Math.ceil((playerScaleFactor/10.0));
 
         for (SiegeWave.WaveEntry entry : wave.entries()) {
             int mobsToSummon = entry.count() * adjustedPlayerScaleFactor;

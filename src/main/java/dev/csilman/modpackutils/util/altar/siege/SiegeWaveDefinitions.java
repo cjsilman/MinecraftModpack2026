@@ -10,7 +10,8 @@ public class SiegeWaveDefinitions {
                     List.of(
                            new SiegeWave.WaveEntry("fdbosses:fire_malkuth_warrior", 12, null, 1),
                            new SiegeWave.WaveEntry("fdbosses:ice_malkuth_warrior", 12, null, 1),
-                           new SiegeWave.WaveEntry("fdbosses:judgement_bird", 24, null, 1.5f)
+                           new SiegeWave.WaveEntry("fdbosses:judgement_bird", 24, null, 1.5f),
+                           new SiegeWave.WaveEntry("cataclysm:ignis", 2, null, 1.5f)
                     )
             ),
             new SiegeWave(
@@ -25,17 +26,17 @@ public class SiegeWaveDefinitions {
                     "3/4",
                     "§4Undone",
                     List.of(
-                            new SiegeWave.WaveEntry("iceandfire:dread_ghoul", 24, null, 1),
-                            new SiegeWave.WaveEntry("iceandfire:dread_lich", 12, null, 1),
-                            new SiegeWave.WaveEntry("iceandfire:dread_knight", 12, null, 1)
+                            new SiegeWave.WaveEntry("cataclysm:scylla", 2, null, 1),
+                            new SiegeWave.WaveEntry("cataclysm:cindaria", 8, null, 1)
                     )
             ),
             new SiegeWave(
                     "4/4",
                     "§6Judgement",
                     List.of(
-                            new SiegeWave.WaveEntry("cataclysm:scylla", 2, null, 1),
-                            new SiegeWave.WaveEntry("cataclysm:cindaria", 8, null, 1)
+
+                            new SiegeWave.WaveEntry("cataclysm:maledictus", 2, null, 1),
+                            new SiegeWave.WaveEntry("cataclysm:aptrgangr", 8, null, 1)
                     )
             )
     );
