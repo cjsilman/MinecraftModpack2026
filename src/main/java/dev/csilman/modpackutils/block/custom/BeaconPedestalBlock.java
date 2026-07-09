@@ -2,7 +2,6 @@ package dev.csilman.modpackutils.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.csilman.modpackutils.block.ModBlocks;
 import dev.csilman.modpackutils.component.MemoryDestination;
 import dev.csilman.modpackutils.data.AltarSavedData;
 import dev.csilman.modpackutils.item.ModItems;
@@ -98,16 +97,60 @@ public class BeaconPedestalBlock extends HorizontalDirectionalBlock {
         return InteractionResult.SUCCESS;
     }
 
+    public InteractionResult tryTeleport(Player player) {
+
+        if (destination == null) return InteractionResult.FAIL;
+
+        MinecraftServer server = player.getServer();
+
+        ServerLevel targetLevel = server.getLevel(destination.dimension());
+
+        if (targetLevel == null) return InteractionResult.FAIL;
+
+        if (destination.dimension() == Level.OVERWORLD) {
+            AltarSavedData data = AltarSavedData.get(targetLevel);
+            BlockPos altarMidpoint = data.getAltarMidpoint();
+
+            ((ServerPlayer) player).teleportTo(
+                    targetLevel,
+                    altarMidpoint.getX(), altarMidpoint.getY()+1, altarMidpoint.getZ(),
+                    Set.of(),
+                    player.getYRot(),
+                    player.getXRot()
+            );
+        } else {
+            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200));
+
+            ((ServerPlayer) player).teleportTo(
+                    targetLevel,
+                    destination.x(), destination.y(), destination.z(),
+                    Set.of(),
+                    player.getYRot(),
+                    player.getXRot()
+            );
+        }
+
+        return InteractionResult.SUCCESS;
+    }
+
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         ItemStack item = player.getMainHandItem();
 
-        if (!item.is(ModItems.FRAGMENTED_MEMORY) && !(item.is(ModTags.Items.NO_BEACON_PEDESTAL_INTERACT))){
+        if (destination == null) return InteractionResult.FAIL;
+
+        if ((!item.is(ModItems.FRAGMENTED_MEMORY) && destination.requireFragmentedMemory())
+                && !(item.is(ModTags.Items.NO_BEACON_PEDESTAL_INTERACT))){
             player.displayClientMessage(
                     Component.translatable("info.modpack_utils.beacon_pedestal.empty_interact"),
                     true
             );
             return InteractionResult.SUCCESS;
+        }
+
+        if (!destination.requireFragmentedMemory()) {
+            if (level.isClientSide()) return InteractionResult.SUCCESS;
+            return this.tryTeleport(player);
         }
 
         return InteractionResult.PASS;

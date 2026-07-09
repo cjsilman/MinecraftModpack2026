@@ -41,7 +41,8 @@ public class ModBlocks {
                         86.5,
                         100,
                         87.5,
-                    4
+                    4,
+                            true
                     )
             )
     );
@@ -54,7 +55,8 @@ public class ModBlocks {
                             151.5,
                             100,
                             138.5,
-                            4
+                            4,
+                            true
                     )
             )
     );
@@ -67,7 +69,8 @@ public class ModBlocks {
                             26.5,
                             100,
                             -118.5,
-                            4
+                            4,
+                            true
                     )
             )
     );
@@ -80,7 +83,8 @@ public class ModBlocks {
                             -5.5,
                             80,
                             -102.5,
-                            6
+                            6,
+                            true
                     )
             )
     );
@@ -93,7 +97,8 @@ public class ModBlocks {
                             9.5,
                             75,
                             -57.5,
-                            6
+                            6,
+                            true
                     )
             )
     );
@@ -106,7 +111,8 @@ public class ModBlocks {
                             -5.5,
                             70,
                             -102.5,
-                            6
+                            6,
+                            true
                     )
             )
     );
@@ -119,7 +125,8 @@ public class ModBlocks {
                             -5.5,
                             150,
                             -102.5,
-                            4
+                            4,
+                            true
                     )
             )
     );
@@ -132,7 +139,8 @@ public class ModBlocks {
                             -5.5,
                             65,
                             -102.5,
-                            8
+                            8,
+                            true
                     )
             )
     );
@@ -145,7 +153,8 @@ public class ModBlocks {
                             6.5,
                             100,
                             183.5,
-                            10
+                            10,
+                            true
                     )
             )
     );
@@ -158,7 +167,8 @@ public class ModBlocks {
                             -5.5,
                             80,
                             137.5,
-                            10
+                            10,
+                            true
                     )
             )
     );
@@ -171,7 +181,8 @@ public class ModBlocks {
                             6.5,
                             20,
                             -200.5,
-                            0
+                            0,
+                            false
                     )
             )
     );
@@ -184,7 +195,8 @@ public class ModBlocks {
                             0,
                             100,
                             0,
-                            0
+                            0,
+                            false
                     )
             )
     );
